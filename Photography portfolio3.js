@@ -175,14 +175,12 @@ function grid_load() {
 
 function seePhoto(photoNum) {
   $('#thumbnail' + photoNum).mouseover(function(){
+    $('.mainphoto').hide();
     $(this).addClass('opacity');
     $('.mainphoto').css('margin-left', '-' + $('#mainphoto' + photoNum).width()/2 + 'px'); //centering the main photo
     $('#mainphoto' + photoNum).show();
 });
-      $('#thumbnail' + photoNum).mouseout(function(){
-      $(this).removeClass('opacity');
-    $('#mainphoto' + photoNum).hide();
-  });
+
 }
 
 
