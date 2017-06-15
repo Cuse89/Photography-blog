@@ -188,10 +188,10 @@
 }
 
 .gridphoto {
-    width: 120%;   /* so the longer landscape photos fill the whole tile */
+    width: 125%;             /* over 100% so the longer landscape photos fill the whole tile */
     align-self: center;
 }
 
 .gridphoto:hover {
-  width: 140%;
+  transform: scale(1.2);
 }
