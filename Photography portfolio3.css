@@ -1,0 +1,186 @@
+#divcontent {
+  display: inline-block;
+  margin-top: 10%;
+  padding-left: 5%;
+  z-index: 10;
+  float: left;
+  position: fixed;
+}
+
+.menu {
+  display: list-item;
+  list-style-type: none;
+  font-size: 36px;
+  line-height: 130%;
+  font-family: Arial;
+  padding: 0;
+  margin: o;
+  cursor: default;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: white;
+  padding: 0;
+  margin: 0;
+  background-color: #00827d;
+}
+
+
+.photographyplaces {
+  display: none;
+  font-size: 24px;
+  list-style-type: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  height: 1px;                  /* so that the rest of menu doesnt move on hover*/
+}
+
+.photographyplaces li a {
+  font-size: 24px;
+  text-decoration: none;
+  padding: 0;
+  margin-left: -10px;
+  padding-left: 20px;
+  padding-right: 10px;
+  background-color: white;
+  color: #00827d;
+}
+
+.photography:hover .photographyplaces {
+    display: inline-flex;
+}
+
+#mainphotodiv {
+  position:relative;
+  height: 510px;
+  width: 80%;
+  left: 20%;
+  z-index: -1;
+}
+
+.mainphoto {
+  max-height: 100%;
+  position:absolute;
+  display: none;
+  left: 50%;
+  max-width: 100%;
+  bottom: 0;
+  margin: 10px;
+ /* jscript is making it: margin-left: -50% of images width, to get image centred. (changes depending on image)*/
+}
+
+#buttons {
+  height: 100px;
+  width: 80%;
+  position:absolute;
+  display: none;
+  right: 5%;                /*left 50% and margin left (-50% of width), makes it centred in screen (if needed)*/
+  bottom: 5%;
+}
+
+
+#window {
+  height: 100px;
+  width: 80%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position:absolute;
+  right: 5%;               /*left 50% and margin left (-50% of width), makes it centred in screen (if needed)*/
+  bottom: 5%;
+}
+
+#gridicon {
+  display: none;
+  top: 400px;
+  position: absolute;
+  opacity: 0.4;
+  max-height: 50px;
+}
+
+#gridicon:hover {
+  opacity: 1;
+}
+
+#inner {
+  position:absolute;
+  width: 3000px;
+}
+
+.thumbnail {
+  height: 100px;
+  opacity: 0.4;
+  padding-right: 5px;
+  display: none;
+}
+
+
+.opacity  {              /*when thumbnail is hovered over, opacity changes*/
+  opacity: 1;
+}
+
+
+#leftbutton {
+  opacity: 0.3;
+  position: absolute;
+  right: 100%;
+  display: none;
+}
+
+#leftbutton:hover {
+  opacity: 1;
+}
+
+#rightbutton {
+  left: 100%;
+  position: absolute;
+  opacity: 0.3;
+}
+
+#rightbutton:hover {
+  opacity: 1;
+}
+
+#griddiv {
+  width:70%;
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  padding-bottom: 
+}
+
+#gridul {
+    max-width: 1200px;
+    min-width: 320px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    margin-top: 24px;
+    list-style: none;
+    display: none;
+}
+
+
+.list {
+    float: left;
+    width: 33.333%;
+    height: 140px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.list:nth-of-type(12n+1),
+.list:nth-of-type(12n+7) {
+  width: 66.666%;
+  height: 280px;
+}
+
+.list:nth-of-type(12n+7) {
+  float: right;
+}
+
+.gridphoto {
+    width: 120%;   /* so the longer landscape photos fill the whole tile */
+    margin: 3px;
+}
