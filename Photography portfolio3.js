@@ -164,7 +164,7 @@ function grid_load() {
   $('#gridul').empty();
           // $(this).parent()[0].id  =  the id of what was clicked e.g either 'iceland' or 'indonesia' (taken the word from the id)
   for(var i = 0; i < photos[gallery_location].length; i++) {
-    $('#gridul').append(`<li class='list'><img class='gridphoto' id='gridphoto${i+1}' src='${photos[gallery_location][i]}' /></li>`);
+    $('#gridul').append(`<li class='list'><div class='imageholder'><img class='gridphoto' id='gridphoto${i+1}' src='${photos[gallery_location][i]}' /></div></li>`);
   };
   $('#gridul').fadeIn(1000);
   $('#gridicon').css('width', '100px');

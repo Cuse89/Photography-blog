@@ -148,7 +148,7 @@
   position: absolute;
   right: 5%;
   top: 5%;
-  padding-bottom: 
+  padding-bottom:
 }
 
 #gridul {
@@ -168,6 +168,7 @@
     height: 140px;
     overflow: hidden;
     box-sizing: border-box;
+    border: 2px white solid;
 }
 
 .list:nth-of-type(12n+1),
@@ -180,7 +181,17 @@
   float: right;
 }
 
+
+.imageholder {
+  height: 100%;
+  display:flex;
+}
+
 .gridphoto {
     width: 120%;   /* so the longer landscape photos fill the whole tile */
-    margin: 3px;
+    align-self: center;
+}
+
+.gridphoto:hover {
+  width: 140%;
 }
