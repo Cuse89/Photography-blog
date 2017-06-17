@@ -52,23 +52,20 @@
 }
 
 #mainphotodiv {
-  position: absolute;             //left 50% and margin left (-50% of width), makes it centred in screen (same with top,margin top)
-  top: 0%;
+  position: absolute;
   height: 500px;
-  width: 900px;                       //needs to be shorter than the widest photo (if you want a good black background)
-  border: 1px red dashed;
-  overflow: hidden;
-  right: 0%;
-  background-color: black;
+  width: 900px;
+  overflow: hidden;                   // it keeps the div in the correct place because the invisible photos arent outside of it
+  margin-top: 200px;
+  margin-left: 375px;
 }
 
 .mainphoto {
   position:absolute;
-  border: 1px blue dashed;
-  left: 50%;                    //jscript is making it: margin-left: -50% of images width, margin-top: -50% of images height to get image centred. (changes depending on image)
+  left: 50%;
   top: 50%;
-  max-height: 500px;
-  max-width: 1000px;
+  max-height: 100%;
+  max-width: 100%;
   display: none;
 }
 
@@ -98,8 +95,7 @@
 }
 
 #worldmapdiv {
-
-  position: relative;
+  position: absolute;
   left: 400px;
   top: 100px;
   height: 300px;
@@ -224,20 +220,23 @@
 }
 
 #gridphotobigdiv {
-  height: 95%;
-  width: 95%;
+  height: 100%;
+  width: 100%;
   position: fixed;
+  top: 0%;
+  left: 0%;
   background-color: black;
-  top: 2.5%;
-  left: 2.5%;
-  display: none;
   z-index: 6;
-
+  overflow: hidden;
+  display: none;
 }
 
-#gridphotobig {
-  height: 100%;
-  align-self: center;
-  position: absolute;
-
+.gridphotobig {
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  display: none;
+  z-index: 7;
+  max-width: 100%;
+  max-height: 100%
 }

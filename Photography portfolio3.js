@@ -136,12 +136,13 @@ $('#gridicon').click(function(){
   /*$('#inner').css('width', 0);           deleted code - used to dynamically change the inners width (doesnt work too well) */
 
   for(var i = 0; i < photos[gallery_location].length; i++) {
-    $('#mainphotodiv').append(`<img class='mainphoto'><img class='mainphoto' id='mainphoto${i+1}' src='${photos[gallery_location][i]}' /></div>`);
+    $('#mainphotodiv').append(`<img class='mainphoto' id='mainphoto${i+1}' src='${photos[gallery_location][i]}' /></div>`);
     $('#inner').append(`<img class='thumbnail' id='thumbnail${i+1}' src='${photos[gallery_location][i]}' />`);
 
   /*$('#inner').css('width', + thumbnailsTotalWidth + 'px');     deleted code - used to dynamically change the inners width (doesnt work too well)*/
   seePhoto(i+1);
   };
+
   $(document).ready(function(){
   $('.thumbnail').each(function(){
     thumbnailsTotalWidth +=($(this).width());
@@ -157,25 +158,6 @@ $('#gridicon').click(function(){
 };
 
 
-
-function grid_load() {
-  $('.thumbnail').fadeOut(1000);
-  $('#buttons').fadeOut(1000);
-  $('#gridul').empty();
-          // $(this).parent()[0].id  =  the id of what was clicked e.g either 'iceland' or 'indonesia' (taken the word from the id)
-  for(var i = 0; i < photos[gallery_location].length; i++) {
-    $('#gridul').append(`<li class='list'><div class='imageholder'><img class='gridphoto' id='gridphoto${i+1}' src='${photos[gallery_location][i]}' /></div></li>`);
-  };
-  $('#gridul').fadeIn(1000);
-  $('#gridicon').css('width', '100px');
-  gridicontype = 'scroller';
-  $('.gridphoto').click(function(){
-    $('#gridphotobigdiv').show();
-  });
-}
-
-
-
 function seePhoto(photoNum) {
   $('#thumbnail' + photoNum).mouseover(function(){
     $(this).addClass('opacity');
@@ -189,6 +171,38 @@ function seePhoto(photoNum) {
     $('#mainphoto' + photoNum).hide();
   });
 }
+
+function grid_load() {
+  $('.thumbnail').fadeOut(1000);
+  $('#buttons').fadeOut(1000);
+  $('#gridul').empty();
+  $('#gridphotobigdiv').empty();
+          // $(this).parent()[0].id  =  the id of what was clicked e.g either 'iceland' or 'indonesia' (taken the word from the id)
+  for(var i = 0; i < photos[gallery_location].length; i++) {
+    $('#gridul').append(`<li class='list'><div class='imageholder'><img class='gridphoto' id='gridphoto${i+1}' src='${photos[gallery_location][i]}' /></div></li>`);
+    $('#gridphotobigdiv').append(`<img class= 'gridphotobig' id='gridphotobig${i+1}' src='${photos[gallery_location][i]}'/>`);
+  seeGridPhotoBig(i+1);
+  };
+  $('#gridul').fadeIn(1000);
+  $('#gridicon').css('width', '100px');
+  gridicontype = 'scroller';
+
+  };
+
+function seeGridPhotoBig(bigPhotoNum) {
+  $('#gridphoto' + bigPhotoNum).click(function(){
+    $('#gridphotobigdiv').show();
+    $('#gridphotobig' + bigPhotoNum).show();
+    $('.gridphotobig').css('margin-left', '-' + $('#gridphotobig' + bigPhotoNum).width()/2 + 'px'); //centering the main photo
+    $('.gridphotobig').css('margin-top', '-' + $('#gridphotobig' + bigPhotoNum).height()/2 + 'px');
+  });
+  $('.gridphotobig').click(function(){
+    $('.gridphotobig').hide();
+    $('#gridphotobigdiv').hide();
+  })
+}
+
+
 
 
 $('#worldmapicon').click(function(){
