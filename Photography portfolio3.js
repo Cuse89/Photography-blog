@@ -136,7 +136,7 @@ $('#gridicon').click(function(){
   /*$('#inner').css('width', 0);           deleted code - used to dynamically change the inners width (doesnt work too well) */
 
   for(var i = 0; i < photos[gallery_location].length; i++) {
-    $('#mainphotodiv').append(`<div class='mainphotowrapper'><img class='mainphoto' id='mainphoto${i+1}' src='${photos[gallery_location][i]}' /></div>`);
+    $('#mainphotodiv').append(`<img class='mainphoto'><img class='mainphoto' id='mainphoto${i+1}' src='${photos[gallery_location][i]}' /></div>`);
     $('#inner').append(`<img class='thumbnail' id='thumbnail${i+1}' src='${photos[gallery_location][i]}' />`);
 
   /*$('#inner').css('width', + thumbnailsTotalWidth + 'px');     deleted code - used to dynamically change the inners width (doesnt work too well)*/
@@ -180,8 +180,8 @@ function seePhoto(photoNum) {
   $('#thumbnail' + photoNum).mouseover(function(){
     $(this).addClass('opacity');
     $('#mainphoto' + photoNum).show();
-    $('.mainphotowrapper').css('margin-left', '-' + $('#mainphoto' + photoNum).width()/2 + 'px'); //centering the main photo
-    $('.mainphotowrapper').css('margin-top', '-' + $('#mainphoto' + photoNum).height()/2 + 'px');
+    $('.mainphoto').css('margin-left', '-' + $('#mainphoto' + photoNum).width()/2 + 'px'); //centering the main photo
+    $('.mainphoto').css('margin-top', '-' + $('#mainphoto' + photoNum).height()/2 + 'px');
 
 });
       $('#thumbnail' + photoNum).mouseout(function(){
