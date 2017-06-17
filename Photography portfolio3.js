@@ -79,6 +79,7 @@ function divcontentload() {
 };
 
 
+
 $('.menu li a').hover (function(){
   $(this).css('color', '#99ddd8');   //#99ddd8 is lighter
 }, function() {
@@ -103,7 +104,6 @@ var gallery_location = '';
 
 $("ul.photographyplaces li a").click(function(){
   gallery_location = $(this).parent()[0].id;
-
   if (gridicontype === 'grid') {
     scroller_load();
   } else if (gridicontype === 'scroller') {
@@ -136,7 +136,7 @@ $('#gridicon').click(function(){
   /*$('#inner').css('width', 0);           deleted code - used to dynamically change the inners width (doesnt work too well) */
 
   for(var i = 0; i < photos[gallery_location].length; i++) {
-    $('#mainphotodiv').append(`<img class='mainphoto' id='mainphoto${i+1}' src='${photos[gallery_location][i]}' />`);
+    $('#mainphotodiv').append(`<div class='mainphotowrapper'><img class='mainphoto' id='mainphoto${i+1}' src='${photos[gallery_location][i]}' /></div>`);
     $('#inner').append(`<img class='thumbnail' id='thumbnail${i+1}' src='${photos[gallery_location][i]}' />`);
 
   /*$('#inner').css('width', + thumbnailsTotalWidth + 'px');     deleted code - used to dynamically change the inners width (doesnt work too well)*/
@@ -169,22 +169,35 @@ function grid_load() {
   $('#gridul').fadeIn(1000);
   $('#gridicon').css('width', '100px');
   gridicontype = 'scroller';
+  $('.gridphoto').click(function(){
+    $('#gridphotobigdiv').show();
+  });
 }
 
 
 
 function seePhoto(photoNum) {
   $('#thumbnail' + photoNum).mouseover(function(){
-    $('.mainphoto').hide();
     $(this).addClass('opacity');
-    $('.mainphoto').css('margin-left', '-' + $('#mainphoto' + photoNum).width()/2 + 'px'); //centering the main photo
     $('#mainphoto' + photoNum).show();
-});
+    $('.mainphotowrapper').css('margin-left', '-' + $('#mainphoto' + photoNum).width()/2 + 'px'); //centering the main photo
+    $('.mainphotowrapper').css('margin-top', '-' + $('#mainphoto' + photoNum).height()/2 + 'px');
 
+});
+      $('#thumbnail' + photoNum).mouseout(function(){
+      $(this).removeClass('opacity');
+    $('#mainphoto' + photoNum).hide();
+  });
 }
 
 
+$('#worldmapicon').click(function(){
+  $('#worldmap').fadeIn(2000);
+});
 
+$('#worldmapdiv').mouseout(function(){
+  $('#worldmap').hide();
+});
 
 $('#rightbutton').on('click', function() {   //NEW IDEA TO DO- when the (.thumbnail: last) is <60% of screen width, OR make thumbnails loop around screen (no need for arrows to fade out)
     $("#inner").animate({
