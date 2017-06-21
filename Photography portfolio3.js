@@ -69,6 +69,24 @@ photos['ischgl'] = [
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/16807315_10154306676031088_7552508042207002906_n.jpg?oh=c9c6464939394a61b54df2d365d26503&oe=59A8AC46',
 ];
 
+photos['nz/aus'] = [
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/19149231_10154632677866088_7146363810180398873_n.jpg?oh=37b62377f18d3ed4ca70bcebbd5b5dac&oe=59DB545D',
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/66213_10151111993926088_1286030794_n.jpg?oh=f6c3b63b392951bf2914dad73d15bdd6&oe=599D62C8',
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/602963_10151346528156088_63519573_n.jpg?oh=8f731722edaac9cc6ec57be57ff1c111&oe=59EA6FFD',
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/10629559_10152298389036088_7158867890961267109_n.jpg?oh=a7a4b786e517375e49a7b5288a6250a3&oe=59DAB1DC',
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/10256965_10152359729741088_1297291994188437440_n.jpg?oh=9481985a8b3763758207e879c8bcce95&oe=59CC7817',
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/10342436_10152359729776088_5734624725023158627_n.jpg?oh=ffbfce1273194e35dd545ac71408cca1&oe=59C9BD29',
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/561948_10151068063076088_698823690_n.jpg?oh=0a9a4d9ed5dcf9b2782e0769d7ec6895&oe=59CDDF2F',
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/10509762_10152223856611088_798609187323638696_n.jpg?oh=81f5d04651943aeeab0a9ff9a8066699&oe=59E5A6E4',
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/941424_10151427882591088_1104358116_n.jpg?oh=37ca3a55de45cbdfa95e7ff2b3af8ab7&oe=59E21A9A',
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/10458309_10152178434411088_1106025280393316155_n.jpg?oh=0c6b98ddee8f226ba7826942f6025f1c&oe=599E255C',
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/1004_10151111992206088_1357350526_n.jpg?oh=a1e9815045446d2d2466516a52ca84b2&oe=59CDC5B9',
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/10350628_10152235617821088_2438022899220315438_n.jpg?oh=268deb5104c6a37b2886b9c56bffeae0&oe=59D2F12C',
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/483057_10151068061276088_394126934_n.jpg?oh=0f4ad910cfd8e4f066b44c9cc2494309&oe=59E6075D',
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/578786_10150930206716088_1907284478_n.jpg?oh=16cfdb206d2f4e4f406a64b62e6185b5&oe=59D89443',
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/483022_10151068060631088_1884618733_n.jpg?oh=b1c6280619a6fb34e3e6b36086b0465c&oe=59CA43D9',
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/1655879_10152359729806088_3333734052135620967_n.jpg?oh=fe1647a2c1c8c9eb44ec9a5f6f680648&oe=59CD5578',
+];
 
 $(document).ready(function(){
   divcontentload();
@@ -97,7 +115,6 @@ $('.photographyplaces li a').hover(function() {
 );
 
 
-
 var thumbnailsTotalWidth = 0;                      // variable is outside of click function in order for the right button click to use it.
 var gridicontype = '';
 var gallery_location = '';
@@ -109,8 +126,9 @@ $("ul.photographyplaces li a").click(function(){
   } else if (gridicontype === 'scroller') {
     grid_load();
   } else {
-    scroller_load();
+    grid_load();
   }
+  $('#gridicon').fadeIn(1000);
 });
 
 
@@ -126,7 +144,6 @@ $('#gridicon').click(function(){
 
   function scroller_load() {
   thumbnailsTotalWidth = 0;
-    /* if gridicon type = 'scroller', grid should change its images to its country (its gallery_id)*/
   $('#gridul').fadeOut(1000);
   $('#mainphotodiv').empty();
   $('#inner').empty();
@@ -152,8 +169,8 @@ $('#gridicon').click(function(){
   $("#buttons").fadeIn(2000);
   $('#window').fadeIn(1000);
   $('#rightbutton').show();
-  $('#gridicon').fadeIn(1000);
   $('#gridicon').css('width', '50px');
+  scrolldistance = ((($('.thumbnail:last').offset().left + $('.thumbnail:last').width() - $('#window').offset().left - $('#window').width()) / (Math.round($('.thumbnail:last').offset().left / $('#window').width())))); // animation distance is respective of the amount of photos and also the window size (since its divided by a whole number, it last photo lines up perfectly with the window end)
   gridicontype = 'grid';
 };
 
@@ -213,16 +230,32 @@ $('#worldmapdiv').mouseout(function(){
   $('#worldmap').hide();
 });
 
-$('#rightbutton').on('click', function() {   //NEW IDEA TO DO- when the (.thumbnail: last) is <60% of screen width, OR make thumbnails loop around screen (no need for arrows to fade out)
+
+
+$('#rightbutton').click(function() {
+    $("#inner").animate({
+      left:('-=' + scrolldistance + 'px')
+    }, 1000);
+  });
+
+  $('#leftbutton').click(function() {
+      $("#inner").animate({
+        left:('+=' + scrolldistance + 'px')
+      }, 1000);
+    });
+
+/*
+$('#rightbutton').on('click', function() {
+  var differenceBetweenLastThumbnailandWindowEnd = $('.thumbnail:last').offset().left - ($('#window').offset().left + $('#window').width());
+  if (differenceBetweenLastThumbnailandWindowEnd > 300) {
     $("#inner").animate({
       left:'-=300px'
     }, 1000);
-    if (parseInt($('#inner').css('left')) <= -(thumbnailsTotalWidth-($('#window').width()))+200) {    // since the window size is dynamic, this is now ineffective
-      $('#rightbutton').fadeOut();
-    }
-    if (parseInt($('#inner').css('left')) <= -0) {
-      $('#leftbutton').fadeIn();
-    }
+} else {
+  $("#inner").animate({
+    left: ('-=' + differenceBetweenLastThumbnailandWindowEnd + 'px')
+  }, 1000);
+};
 });
 
 
@@ -230,14 +263,8 @@ $('#leftbutton').on('click', function() {
     $("#inner").animate({
       left:'+=300px'
     }, 1000);
-    if (parseInt($('#inner').css('left')) >= -300) {
-      $('#leftbutton').fadeOut();
-    }
-    if (parseInt($('#inner').css('left')) <= -600) {
-      $('#rightbutton').fadeIn();
-    }
 });
-
+*/
 
 
 
