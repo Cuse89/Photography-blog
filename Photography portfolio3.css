@@ -245,3 +245,14 @@ body {
   max-width: 100%;
   z-index: 7;
 }
+
+#close {
+    position: relative;
+    top: 300px;
+    left: 500px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    z-index: 9;
+}
