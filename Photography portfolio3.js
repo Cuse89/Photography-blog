@@ -192,6 +192,13 @@ function grid_load() {
   $('#gridicon').css('width', '100px');
   gridicontype = 'scroller';
 
+  var distance = $('#countryinfo').offset().top,
+          $window = $(window);
+      $window.scroll(function() {
+          if ($window.scrollTop() >= distance ) {
+              $('#countryinfo').css('position', 'fixed');
+          }
+      })
   };
 
 function seeGridPhotoBig(bigPhotoNum) {
@@ -232,27 +239,6 @@ $('#rightbutton').click(function() {
       }, 1000);
     });
 
-/*
-$('#rightbutton').on('click', function() {
-  var differenceBetweenLastThumbnailandWindowEnd = $('.thumbnail:last').offset().left - ($('#window').offset().left + $('#window').width());
-  if (differenceBetweenLastThumbnailandWindowEnd > 300) {
-    $("#inner").animate({
-      left:'-=300px'
-    }, 1000);
-} else {
-  $("#inner").animate({
-    left: ('-=' + differenceBetweenLastThumbnailandWindowEnd + 'px')
-  }, 1000);
-};
-});
-
-
-$('#leftbutton').on('click', function() {
-    $("#inner").animate({
-      left:'+=300px'
-    }, 1000);
-});
-*/
 
 
 
