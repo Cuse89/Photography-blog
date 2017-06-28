@@ -1,3 +1,31 @@
+body {
+  overflow-x: hidden;
+}
+
+#introimagediv {
+  width: 1400px;
+  height: auto;
+  z-index: -11111;
+  position: fixed;
+  left: -10px;
+  top: -10px;
+}
+
+#introimage {
+  width: 100%;
+}
+
+#divmaincontent {
+  position: relative;
+  top: 700px;
+  border: 1px red dashed;
+  background-color: black;
+  z-index: 100;
+  width: 102%;
+  height: 900px;
+  left: -10px;
+}
+
 #divcontent {
   margin-top: 5%;
   padding-left: 5%;
@@ -10,7 +38,7 @@
   list-style-type: none;
   font-size: 36px;
   line-height: 130%;
-  font-family: times;
+  font-family: Arial;
   padding: 0;
   margin: 0;
   cursor: default;
@@ -18,10 +46,10 @@
 
 .menu li a {
   text-decoration: none;
-
+  color: white;
   padding: 0;
   margin: 0;
-
+  background-color: #00827d;
 }
 
 
