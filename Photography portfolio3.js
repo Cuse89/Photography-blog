@@ -188,6 +188,7 @@ function grid_load() {
   };
   $('#gridphotobigdiv').append(`<span id="close">&times;</span>`)
   $('#gridul').fadeIn(1000);
+  $('#countryinfo').fadeIn(1000);
   $('#gridicon').css('width', '100px');
   gridicontype = 'scroller';
 
