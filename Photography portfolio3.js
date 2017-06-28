@@ -186,6 +186,7 @@ function grid_load() {
     $('#gridphotobigdiv').append(`<img class= 'gridphotobig' id='gridphotobig${i+1}' src='${photos[gallery_location][i]}'/>`);
   seeGridPhotoBig(i+1);
   };
+  $('#gridphotobigdiv').append(`<span id="close">&times;</span>`)
   $('#gridul').fadeIn(1000);
   $('#gridicon').css('width', '100px');
   gridicontype = 'scroller';
@@ -199,7 +200,7 @@ function seeGridPhotoBig(bigPhotoNum) {
     $('.gridphotobig').css('margin-left', '-' + $('#gridphotobig' + bigPhotoNum).width()/2 + 'px'); //centering the main photo
     $('.gridphotobig').css('margin-top', '-' + $('#gridphotobig' + bigPhotoNum).height()/2 + 'px');
   });
-  $('.gridphotobig').click(function(){
+  $(document).on('click', '#close', function(){      //used 'event delegation', as the span is added dynamically
     $('.gridphotobig').hide();
     $('#gridphotobigdiv').hide();
   })

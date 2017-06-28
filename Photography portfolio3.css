@@ -248,11 +248,18 @@ body {
 
 #close {
     position: relative;
-    top: 300px;
-    left: 500px;
+    top: 2%;
+    left: 95%;
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s;
     z-index: 9;
+}
+
+#close:hover,
+#close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
 }
