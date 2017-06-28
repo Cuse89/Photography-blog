@@ -98,28 +98,14 @@ function divcontentload() {
 
 
 
-$('.menu li a').hover (function(){
-  $(this).css('color', '#99ddd8');   //#99ddd8 is lighter
-}, function() {
-  $(this).css('color', 'white');
-  $('.photographyplaces li a').css('color', '#00827d');   //#00827d is darker
-});
 
-$('.photographyplaces li a').hover(function() {
-  $('#photography a').css('color', '#99ddd8');
-  $('.photographyplaces li a').not($(this)).css('color','#00827d');
-}, function() {
-  $('#photography a').css('color', 'white');
-  $('.photographyplaces li a').css('color','#00827d');
-}
-);
 
 
 var thumbnailsTotalWidth = 0;                      // variable is outside of click function in order for the right button click to use it.
 var gridicontype = '';
 var gallery_location = '';
 
-$("ul.photographyplaces li a").click(function(){
+$(".menu li a").click(function(){
   gallery_location = $(this).parent()[0].id;
   if (gridicontype === 'grid') {
     scroller_load();
