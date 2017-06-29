@@ -191,15 +191,24 @@ function grid_load() {
   $('#countryinfo').fadeIn(1000);
   $('#gridicon').css('width', '100px');
   gridicontype = 'scroller';
-
-  var distance = $('#countryinfo').offset().top,
-          $window = $(window);
-      $window.scroll(function() {
-          if ($window.scrollTop() >= distance ) {
-              $('#countryinfo').css('position', 'fixed');
-          }
-      })
   };
+
+$(window).scroll(function(){
+  parallaxScroll();
+  if ($('#introimagediv').offset().top >= 405) {
+      $('#countryinfo').css({'position': 'fixed', 'top': '0', 'left': '0'});
+  } else {
+    $('#countryinfo').css('position', 'absolute')
+  }
+})
+
+function parallaxScroll(){
+    var scrolled = $(window).scrollTop();
+
+    $('#introimagediv').css('top',(0-(scrolled*.25))+'px');
+
+}
+
 
 function seeGridPhotoBig(bigPhotoNum) {
   $('#gridphoto' + bigPhotoNum).click(function(){

@@ -9,20 +9,21 @@ body {
   height: auto;
   z-index: 0;
   position: fixed;
-  left: -10px;
-  top: -10px;
+  left: 0;
+  top: 0;
 }
 
 #introimage {
-  width: 105vw;
+  width: 100vw;
 }
 
 #divmaincontent {
-  position: relative;
+  position: absolute;
   z-index: 10;
   width: 102%;
   height: 600px;
-  left: -10px;
+  left: 0;
+  top: 0;
 }
 
 #divcontent {
@@ -62,9 +63,8 @@ body {
 
 #griddiv {
   position: absolute;
-  top: 80%;
+  top: 90%;
   width: 100%;
-
   background-color: white;
 }
 
@@ -74,8 +74,10 @@ body {
   position: absolute;
   background-color: white;
   display: none;
-  padding-left: 10px;
+  padding-left: 20px;
   z-index: 4;
+  left: 0;
+  margin: 0;
 }
 
 #gridul {
@@ -235,8 +237,7 @@ body {
 #gridicon {
   display: none;
   left: 40px;
-  top: 475px;
-  position: fixed;
+  top: 50%;
   opacity: 0.4;
   max-height: 50px;
 }
