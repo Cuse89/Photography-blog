@@ -1,7 +1,7 @@
 // Script amended from Photography portfolio1.js so new photo albums can be uploaded as arrays
 var photos = {}
 
-photos['iceland'] = [
+photos["iceland"] = [
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14601054_10153928625106088_185953656696770950_n.jpg?oh=acf7caa31c93595ab28a310d3d27eb5f&oe=59A7D433',
   'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/14522766_10153928628386088_1602606012884796857_n.jpg?oh=8dfd705d2711b62142e27c1346c168c9&oe=59E89716',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14601090_10153928625776088_8806464417718742860_n.jpg?oh=9a1d5c41e833bfa1e5cb8cc01bfed820&oe=59DA2EEE',
@@ -24,7 +24,7 @@ photos['iceland'] = [
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14485079_10153928625396088_1313510254542210929_n.jpg?oh=ebb7a3f883802472df9f5c5bd97696c0&oe=59DF000E',
   ];
 
-photos['indonesia'] = [
+photos["indonesia"] = [
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/10615342_10152410614321088_7795944754476777199_n.jpg?oh=3a3cca6b64d96df603e29dd918726ede&oe=59D621BD',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/10153754_10152410605551088_1638235473519526449_n.jpg?oh=c7f9e15f6d7e9e7bd72b01b555cabf56&oe=59D5BD18',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/10006317_10152410628346088_4911320649985496708_n.jpg?oh=13fdb06fca652044e6607df02b50e104&oe=599C6A6B',
@@ -50,7 +50,7 @@ photos['indonesia'] = [
 
 ];
 
-photos['ischgl'] = [
+photos["ischgl"] = [
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/16649044_10154306675496088_4333845503618331548_n.jpg?oh=62cd6d1df095159adcf5ac628cd23ad6&oe=599E6C0E',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/16649493_10154306675501088_590633381964069124_n.jpg?oh=a9ced996baf48e811499035cb6bac48d&oe=59A1724C',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/17953023_10155219476696060_1081870876440962685_n.jpg?oh=40ce2d8d572be8ecd0fa2a35ade31115&oe=59A84814',
@@ -69,7 +69,7 @@ photos['ischgl'] = [
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/16807315_10154306676031088_7552508042207002906_n.jpg?oh=c9c6464939394a61b54df2d365d26503&oe=59A8AC46',
 ];
 
-photos['nz/aus'] = [
+photos["nz/aus"] = [
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/19149231_10154632677866088_7146363810180398873_n.jpg?oh=37b62377f18d3ed4ca70bcebbd5b5dac&oe=59DB545D',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/66213_10151111993926088_1286030794_n.jpg?oh=f6c3b63b392951bf2914dad73d15bdd6&oe=599D62C8',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/602963_10151346528156088_63519573_n.jpg?oh=8f731722edaac9cc6ec57be57ff1c111&oe=59EA6FFD',
@@ -93,17 +93,17 @@ photos['nz/aus'] = [
 
 var thumbnailsTotalWidth = 0;                      // variable is outside of click function in order for the right button click to use it.
 var gridicontype = '';
-var gallery_location = '';
+var gallery_location = "";
 
 $(".menu li a").click(function(){
   gallery_location = $(this).parent()[0].id;
 
-  if (gallery_location === 'ischgl') {
+  if (gallery_location === "ischgl") {
     $('#backimagediv').empty();
-    $('#backimagediv').append(`<img class='backimage 'src='ischgl_cropped.jpg'/>`);
+    $('#backimagediv').append("<img class='backimage' src='ischgl_cropped.jpg'/>");
   } else if (gallery_location === 'indonesia') {
     $('#backimagediv').empty();
-    $('#backimagediv').append(`<img class='backimage 'src='indonesia_cropped.jpg'/>`);
+    $('#backimagediv').append("<img class='backimage' src='indonesia_cropped.jpg'/>");
   }
 
   if (gridicontype === 'grid') {
@@ -124,11 +124,11 @@ function grid_load() {
   $('#gridphotobigdiv').empty();
           // $(this).parent()[0].id  =  the id of what was clicked e.g either 'iceland' or 'indonesia' (taken the word from the id)
   for(var i = 0; i < photos[gallery_location].length; i++) {
-    $('#gridul').append(`<li class='list'><div class='imageholder'><img class='gridphoto' id='gridphoto${i+1}' src='${photos[gallery_location][i]}' /></div></li>`);
-    $('#gridphotobigdiv').append(`<img class= 'gridphotobig' id='gridphotobig${i+1}' src='${photos[gallery_location][i]}'/>`);
+    $('#gridul').append("<li class='list'><div class='imageholder'><img class='gridphoto' id='gridphoto${i+1} src='${photos[gallery_location][i]}'/></div></li>");
+    $('#gridphotobigdiv').append("<img class= 'gridphotobig' id='gridphotobig${i+1}' src='${photos[gallery_location][i]}'/>");
   seeGridPhotoBig(i+1);
   };
-  $('#gridphotobigdiv').append(`<span id="close">&times;</span>`)
+  $('#gridphotobigdiv').append("<span id='close'>&times;</span>");
   $('#gridul').fadeIn(1000);
   $('#countryinfo').fadeIn(1000);
   $('#gridicon').css('width', '100px');
@@ -157,8 +157,8 @@ $('#gridicon').click(function(){
   /*$('#inner').css('width', 0);           deleted code - used to dynamically change the inners width (doesnt work too well) */
 
   for(var i = 0; i < photos[gallery_location].length; i++) {
-    $('#mainphotodiv').append(`<img class='mainphoto' id='mainphoto${i+1}' src='${photos[gallery_location][i]}' /></div>`);
-    $('#inner').append(`<img class='thumbnail' id='thumbnail${i+1}' src='${photos[gallery_location][i]}' />`);
+    $('#mainphotodiv').append("<img class='mainphoto' id='mainphoto${i+1}' src='${photos[gallery_location][i]}' /></div>");
+    $('#inner').append("<img class='thumbnail' id='thumbnail${i+1}' src='${photos[gallery_location][i]}' />");
 
   /*$('#inner').css('width', + thumbnailsTotalWidth + 'px');     deleted code - used to dynamically change the inners width (doesnt work too well)*/
   seePhoto(i+1);
