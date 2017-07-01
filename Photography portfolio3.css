@@ -4,7 +4,7 @@ body {
   font-family: 'Century Gothic',  sans-serif;
 }
 
-#introimagediv {
+#backimagediv {
   width: 100vw;
   height: auto;
   z-index: 0;
@@ -13,7 +13,7 @@ body {
   top: 0;
 }
 
-#introimage {
+.backimage {
   width: 100vw;
 }
 

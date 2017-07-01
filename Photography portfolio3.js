@@ -21,7 +21,7 @@ photos['iceland'] = [
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14601112_10153928627961088_1329948127232212228_n.jpg?oh=f003fba6ef6c4587cddd26d9615c17a2&oe=59DF7520',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14494807_10153928628096088_5704970143888508819_n.jpg?oh=c38e0af35e325847845d08b91fcec329&oe=59D17D67',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14470505_10153928628551088_501650544096908355_n.jpg?oh=922cc53f11eb6edb525f819f1a8d4146&oe=59D3CD7D',
-  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14485079_10153928625396088_1313510254542210929_n.jpg?oh=ebb7a3f883802472df9f5c5bd97696c0&oe=59DF000E'
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14485079_10153928625396088_1313510254542210929_n.jpg?oh=ebb7a3f883802472df9f5c5bd97696c0&oe=59DF000E',
   ];
 
 photos['indonesia'] = [
@@ -86,18 +86,8 @@ photos['nz/aus'] = [
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/578786_10150930206716088_1907284478_n.jpg?oh=16cfdb206d2f4e4f406a64b62e6185b5&oe=59D89443',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/483022_10151068060631088_1884618733_n.jpg?oh=b1c6280619a6fb34e3e6b36086b0465c&oe=59CA43D9',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/1655879_10152359729806088_3333734052135620967_n.jpg?oh=fe1647a2c1c8c9eb44ec9a5f6f680648&oe=59CD5578',
+  'windmill.jpg',
 ];
-
-$(document).ready(function(){
-  divcontentload();
-});
-
-function divcontentload() {
-  $('#divcontent').fadeIn(5000);
-};
-
-
-
 
 
 
@@ -107,6 +97,15 @@ var gallery_location = '';
 
 $(".menu li a").click(function(){
   gallery_location = $(this).parent()[0].id;
+
+  if (gallery_location === 'ischgl') {
+    $('#backimagediv').empty();
+    $('#backimagediv').append(`<img class='backimage 'src='ischgl_cropped.jpg'/>`);
+  } else if (gallery_location === 'indonesia') {
+    $('#backimagediv').empty();
+    $('#backimagediv').append(`<img class='backimage 'src='indonesia_cropped.jpg'/>`);
+  }
+
   if (gridicontype === 'grid') {
     scroller_load();
   } else if (gridicontype === 'scroller') {
@@ -116,6 +115,25 @@ $(".menu li a").click(function(){
   }
   $('#gridicon').fadeIn(1000);
 });
+
+
+function grid_load() {
+  $('.thumbnail').fadeOut(1000);
+  $('#buttons').fadeOut(1000);
+  $('#gridul').empty();
+  $('#gridphotobigdiv').empty();
+          // $(this).parent()[0].id  =  the id of what was clicked e.g either 'iceland' or 'indonesia' (taken the word from the id)
+  for(var i = 0; i < photos[gallery_location].length; i++) {
+    $('#gridul').append(`<li class='list'><div class='imageholder'><img class='gridphoto' id='gridphoto${i+1}' src='${photos[gallery_location][i]}' /></div></li>`);
+    $('#gridphotobigdiv').append(`<img class= 'gridphotobig' id='gridphotobig${i+1}' src='${photos[gallery_location][i]}'/>`);
+  seeGridPhotoBig(i+1);
+  };
+  $('#gridphotobigdiv').append(`<span id="close">&times;</span>`)
+  $('#gridul').fadeIn(1000);
+  $('#countryinfo').fadeIn(1000);
+  $('#gridicon').css('width', '100px');
+  gridicontype = 'scroller';
+  };
 
 
 $('#gridicon').click(function(){
@@ -175,27 +193,11 @@ function seePhoto(photoNum) {
   });
 }
 
-function grid_load() {
-  $('.thumbnail').fadeOut(1000);
-  $('#buttons').fadeOut(1000);
-  $('#gridul').empty();
-  $('#gridphotobigdiv').empty();
-          // $(this).parent()[0].id  =  the id of what was clicked e.g either 'iceland' or 'indonesia' (taken the word from the id)
-  for(var i = 0; i < photos[gallery_location].length; i++) {
-    $('#gridul').append(`<li class='list'><div class='imageholder'><img class='gridphoto' id='gridphoto${i+1}' src='${photos[gallery_location][i]}' /></div></li>`);
-    $('#gridphotobigdiv').append(`<img class= 'gridphotobig' id='gridphotobig${i+1}' src='${photos[gallery_location][i]}'/>`);
-  seeGridPhotoBig(i+1);
-  };
-  $('#gridphotobigdiv').append(`<span id="close">&times;</span>`)
-  $('#gridul').fadeIn(1000);
-  $('#countryinfo').fadeIn(1000);
-  $('#gridicon').css('width', '100px');
-  gridicontype = 'scroller';
-  };
+
 
 $(window).scroll(function(){
   parallaxScroll();
-  if ($('#introimagediv').offset().top >= 405) {
+  if ($('#backimagediv').offset().top >= 405) {
       $('#countryinfo').css({'position': 'fixed', 'top': '0', 'left': '0'});
   } else {
     $('#countryinfo').css('position', 'absolute')
@@ -204,8 +206,7 @@ $(window).scroll(function(){
 
 function parallaxScroll(){
     var scrolled = $(window).scrollTop();
-
-    $('#introimagediv').css('top',(0-(scrolled*.25))+'px');
+    $('#backimagediv').css('top',(0-(scrolled*.25))+'px');
 
 }
 
