@@ -91,8 +91,7 @@ photos['nz/aus'] = [
 
 
 
-var thumbnailsTotalWidth = 0;                      // variable is outside of click function in order for the right button click to use it.
-var gridicontype = '';
+
 var gallery_location = '';
 
 $(document).ready(function(){
@@ -129,14 +128,7 @@ $(".menu li a").click(function(){
   } else if (gallery_location == 'iceland') {
     $('#backimagediv').html(`<img class='backimage 'src='iceland_cropped.jpg'/>`);
   }
-  if (gridicontype == 'grid') {
-    scroller_load();
-  } else if (gridicontype == 'scroller') {
-    grid_load();
-  } else {
-    grid_load();
-  }
-  $('#gridicon').fadeIn(1000);
+  grid_load();
   $('body').css('overflow-y', 'auto')
   $('.backimage').show();
 });
@@ -156,68 +148,8 @@ function grid_load() {
   $('#gridphotobigdiv').append(`<span id="close">&times;</span>`)
   $('#gridul').fadeIn(1000);
   $('#countryinfo').fadeIn(1000);
-  $('#gridicon').css('width', '100px');
-  gridicontype = 'scroller';
   };
 
-
-$('#gridicon').click(function(){
-  if (gridicontype == 'grid') {
-    grid_load();
-  }
-    else if (gridicontype == 'scroller') {
-      scroller_load();
-  }
-});
-
-
-  function scroller_load() {
-  thumbnailsTotalWidth = 0;
-  $('#gridul').fadeOut(1000);
-  $('#mainphotodiv').empty();
-  $('#inner').empty();
-  $('#inner').css("left", 0);
-  $('#mainphotodiv').empty();
-  $("#buttons").hide();
-  $('#countryinfo').css({'position': 'fixed', 'top': '0', 'left': '0'});
-  /*$('#inner').css('width', 0);           deleted code - used to dynamically change the inners width (doesnt work too well) */
-
-  for(var i = 0; i < photos[gallery_location].length; i++) {
-    $('#mainphotodiv').append(`<img class='mainphoto' id='mainphoto${i+1}' src='${photos[gallery_location][i]}' /></div>`);
-    $('#inner').append(`<img class='thumbnail' id='thumbnail${i+1}' src='${photos[gallery_location][i]}' />`);
-
-  /*$('#inner').css('width', + thumbnailsTotalWidth + 'px');     deleted code - used to dynamically change the inners width (doesnt work too well)*/
-  seePhoto(i+1);
-  };
-
-  $(document).ready(function(){
-  $('.thumbnail').each(function(){
-    thumbnailsTotalWidth +=($(this).width());
-  });
-});
-  $('.thumbnail').fadeIn(2000);
-  $("#buttons").fadeIn(2000);
-  $('#window').fadeIn(1000);
-  $('#rightbutton').show();
-  $('#gridicon').css('width', '50px');
-  scrolldistance = ((($('.thumbnail:last').offset().left + $('.thumbnail:last').width() - $('#window').offset().left - $('#window').width()) / (Math.round($('.thumbnail:last').offset().left / $('#window').width())))); // animation distance is respective of the amount of photos and also the window size (since its divided by a whole number, it last photo lines up perfectly with the window end)
-  gridicontype = 'grid';
-};
-
-
-function seePhoto(photoNum) {
-  $('#thumbnail' + photoNum).mouseover(function(){
-    $(this).addClass('opacity');
-    $('#mainphoto' + photoNum).show();
-    $('.mainphoto').css('margin-left', '-' + $('#mainphoto' + photoNum).width()/2 + 'px'); //centering the main photo
-    $('.mainphoto').css('margin-top', '-' + $('#mainphoto' + photoNum).height()/2 + 'px');
-
-});
-      $('#thumbnail' + photoNum).mouseout(function(){
-      $(this).removeClass('opacity');
-    $('#mainphoto' + photoNum).hide();
-  });
-};
 
 
 
@@ -225,9 +157,6 @@ $(window).scroll(function(){
   parallaxScroll();
   if ($('#backimagediv').offset().top >= 445) {
       $('#countryinfo').css({'position': 'fixed', 'top': '0', 'left': '0'});
-  } else if ($('#backimagediv').offset().top <= 445 && gridicontype == 'grid'){
-    alert ('boom')
-    $('#countryinfo').css('position', 'fixed')
   } else {
     $('#countryinfo').css('position', 'absolute')
   }
@@ -254,36 +183,6 @@ function seeGridPhotoBig(bigPhotoNum) {
     $('body').css('overflow-y', 'auto')
   })
 };
-
-
-
-
-$('#worldmapicon').click(function(){
-  $('#worldmap').fadeIn(2000);
-});
-
-$('#worldmapdiv').mouseout(function(){
-  $('#worldmap').hide();
-});
-
-
-
-$('#rightbutton').click(function() {
-    $("#inner").animate({
-      left:('-=' + scrolldistance + 'px')
-    }, 1000);
-  });
-
-  $('#leftbutton').click(function() {
-      $("#inner").animate({
-        left:('+=' + scrolldistance + 'px')
-      }, 1000);
-    });
-
-
-
-
-
 
 
 

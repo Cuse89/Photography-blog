@@ -45,18 +45,8 @@ body {
 
 .backimage {
   width: 100vw;
-  display: none;
 }
 
-
-
-#divcontent {
-  top: 2%;
-  left: 10%;
-  z-index: 1;
-  float: left;
-  position: absolute;
-}
 
 .menu {
   list-style-type: none;
@@ -191,120 +181,4 @@ body {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
-}
-
-#mainphotodiv {
-  position: absolute;
-  height: 500px;
-  width: 900px;
-  overflow: hidden;                   // it keeps the div in the correct place because the invisible photos arent outside of it
-  margin-top: 200px;
-  margin-left: 375px;
-
-}
-
-.mainphoto {
-  position:absolute;
-  left: 50%;
-  top: 50%;
-  max-height: 100%;
-  max-width: 100%;
-  display: none;
-}
-
-#buttons {
-  height: 100px;
-  width: 80%;
-  position:absolute;
-  display: none;
-  right: 5%;
-  bottom: 5%;
-
-
-}
-
-
-#window {
-  height: 100px;
-  width: 80%;
-  overflow: hidden;
-  position:absolute;
-  right: 5%;
-  bottom: 5%;
-}
-
-#inner {
-  position:absolute;
-  width: 5000px;
-}
-
-#worldmapdiv {
-  position: absolute;
-  left: 400px;
-  top: 100px;
-  height: 300px;
-  width: 600px;
-
-}
-
-#worldmap {
-  display: none;
-  width: 100%;
-  height: 100%;
-}
-
-#worldmapicon {
-  top: 400px;
-  position: absolute;
-  opacity: 0.4;
-  max-height: 50px;
-  left: 40px;
-  display: none;
-}
-
-#gridicon {
-  display: none;
-  left: 40px;
-  top: 50%;
-  opacity: 0.4;
-  max-height: 50px;
-}
-
-#gridicon:hover {
-  opacity: 1;
-}
-
-
-
-.thumbnail {
-  height: 100px;
-  opacity: 0.4;
-  padding-right: 5px;
-  display: none;
-}
-
-
-.opacity  {              /*when thumbnail is hovered over, opacity changes*/
-  opacity: 1;
-}
-
-
-#leftbutton {
-  opacity: 0.3;
-  position: absolute;
-  right: 100%;
-}
-
-#leftbutton:hover {
-  opacity: 1;
-}
-
-#rightbutton {
-  left: 100%;
-  position: absolute;
-  opacity: 0.3;
-}
-
-#rightbutton:hover {
-  opacity: 1;
 }
