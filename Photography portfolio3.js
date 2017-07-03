@@ -70,9 +70,9 @@ photos['ischgl'] = [
 ];
 
 photos['nz/aus'] = [
-  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/19149231_10154632677866088_7146363810180398873_n.jpg?oh=37b62377f18d3ed4ca70bcebbd5b5dac&oe=59DB545D',
+  'windmill.jpg',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/66213_10151111993926088_1286030794_n.jpg?oh=f6c3b63b392951bf2914dad73d15bdd6&oe=599D62C8',
-  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/602963_10151346528156088_63519573_n.jpg?oh=8f731722edaac9cc6ec57be57ff1c111&oe=59EA6FFD',
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/19149231_10154632677866088_7146363810180398873_n.jpg?oh=37b62377f18d3ed4ca70bcebbd5b5dac&oe=59DB545D',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/10629559_10152298389036088_7158867890961267109_n.jpg?oh=a7a4b786e517375e49a7b5288a6250a3&oe=59DAB1DC',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/10256965_10152359729741088_1297291994188437440_n.jpg?oh=9481985a8b3763758207e879c8bcce95&oe=59CC7817',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/10342436_10152359729776088_5734624725023158627_n.jpg?oh=ffbfce1273194e35dd545ac71408cca1&oe=59C9BD29',
@@ -86,7 +86,7 @@ photos['nz/aus'] = [
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/578786_10150930206716088_1907284478_n.jpg?oh=16cfdb206d2f4e4f406a64b62e6185b5&oe=59D89443',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/483022_10151068060631088_1884618733_n.jpg?oh=b1c6280619a6fb34e3e6b36086b0465c&oe=59CA43D9',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/1655879_10152359729806088_3333734052135620967_n.jpg?oh=fe1647a2c1c8c9eb44ec9a5f6f680648&oe=59CD5578',
-  'windmill.jpg',
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/602963_10151346528156088_63519573_n.jpg?oh=8f731722edaac9cc6ec57be57ff1c111&oe=59EA6FFD',
 ];
 
 
@@ -95,17 +95,40 @@ var thumbnailsTotalWidth = 0;                      // variable is outside of cli
 var gridicontype = '';
 var gallery_location = '';
 
+$(document).ready(function(){
+  $('.backimage').hide();
+  $('body').css('overflow-y', 'hidden');
+  $('#welcome').css('margin-left', $('#welcome').width()/2 + 'px')
+});
+
+$('#welcome').click(function() {
+    $('#welcome').animate({
+      top: '-10%',
+    }, { queue: false, duration: 2000} )
+  .animate({
+  opacity: "0",
+}, 1000);
+    $('#introimagediv').animate({
+      top: ('-' + ($('#introimage').height() - $('.backimage').height()) + 'px')
+    }, 4000, function() {
+      $('.backimage').show();
+      $('#introimagediv').hide();
+      $('#welcome').hide();
+      $('.menu').fadeIn(1000);
+    });
+});
+
 $(".menu li a").click(function(){
   gallery_location = $(this).parent()[0].id;
-
   if (gallery_location === 'ischgl') {
-    $('#backimagediv').empty();
-    $('#backimagediv').append(`<img class='backimage 'src='ischgl_cropped.jpg'/>`);
+    $('#backimagediv').html(`<img class='backimage 'src='ischgl_cropped.jpg'/>`);
   } else if (gallery_location === 'indonesia') {
-    $('#backimagediv').empty();
-    $('#backimagediv').append(`<img class='backimage 'src='indonesia_cropped.jpg'/>`);
+    $('#backimagediv').html(`<img class='backimage 'src='indonesia_cropped.jpg'/>`);
+  } else if (gallery_location === 'nz/aus') {
+    $('#backimagediv').html(`<img class='backimage 'src='nzaus_cropped.jpg'/>`);
+  } else if (gallery_location === 'iceland') {
+    $('#backimagediv').html(`<img class='backimage 'src='iceland_cropped.jpg'/>`);
   }
-
   if (gridicontype === 'grid') {
     scroller_load();
   } else if (gridicontype === 'scroller') {
@@ -114,6 +137,7 @@ $(".menu li a").click(function(){
     grid_load();
   }
   $('#gridicon').fadeIn(1000);
+  $('body').css('overflow-y', 'auto')
 });
 
 
@@ -197,7 +221,7 @@ function seePhoto(photoNum) {
 
 $(window).scroll(function(){
   parallaxScroll();
-  if ($('#backimagediv').offset().top >= 405) {
+  if ($('#backimagediv').offset().top >= 445) {
       $('#countryinfo').css({'position': 'fixed', 'top': '0', 'left': '0'});
   } else {
     $('#countryinfo').css('position', 'absolute')
@@ -217,10 +241,12 @@ function seeGridPhotoBig(bigPhotoNum) {
     $('#gridphotobig' + bigPhotoNum).show();
     $('.gridphotobig').css('margin-left', '-' + $('#gridphotobig' + bigPhotoNum).width()/2 + 'px'); //centering the main photo
     $('.gridphotobig').css('margin-top', '-' + $('#gridphotobig' + bigPhotoNum).height()/2 + 'px');
+    $('body').css('overflow-y', 'hidden')
   });
   $(document).on('click', '#close', function(){      //used 'event delegation', as the span is added dynamically
     $('.gridphotobig').hide();
     $('#gridphotobigdiv').hide();
+    $('body').css('overflow-y', 'auto')
   })
 }
 
