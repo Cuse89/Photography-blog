@@ -20,6 +20,7 @@ photos['iceland'] = [
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14494726_10153928627776088_124634162593241085_n.jpg?oh=29580e6ed8a3b96551e49f2017fac4be&oe=599F85F8',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14601112_10153928627961088_1329948127232212228_n.jpg?oh=f003fba6ef6c4587cddd26d9615c17a2&oe=59DF7520',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14494807_10153928628096088_5704970143888508819_n.jpg?oh=c38e0af35e325847845d08b91fcec329&oe=59D17D67',
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14494739_10153928626141088_7384431587179217375_n.jpg?oh=2a98c083d9da6f68e3a08f849333a407&oe=59DA05A5',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14470505_10153928628551088_501650544096908355_n.jpg?oh=922cc53f11eb6edb525f819f1a8d4146&oe=59D3CD7D',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14485079_10153928625396088_1313510254542210929_n.jpg?oh=ebb7a3f883802472df9f5c5bd97696c0&oe=59DF000E',
   ];
@@ -38,7 +39,6 @@ photos['indonesia'] = [
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/10422961_10152410603471088_6828122409380235999_n.jpg?oh=af176e14ef2e8eb97de9d0424878aa15&oe=59DCD3DF',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/934859_10152410603596088_1301397185474629790_n.jpg?oh=d1ff824d3a012c1820ab186c3d63d314&oe=59DC6984',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/10626819_10152410604671088_8389572094933664723_n.jpg?oh=95b25489ea8d0078ff61a8307b8a2738&oe=59D9A0A8',
-  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/10678841_10152410615931088_5222331783053210994_n.jpg?oh=b1cca7da7245d97435d982a808a467d9&oe=59D871BF',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/1901770_10152410616176088_1568551232554945962_n.jpg?oh=346fd1c2d017df5866f20fbbc70f84de&oe=59DA3195',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/1779313_10152410616676088_3759563130038539790_n.jpg?oh=552b71c82e2eca144c6e782e4756f1aa&oe=59D4D553',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/10177340_10152410616956088_7532500511301856663_n.jpg?oh=f9a252ebfd1ab38ea6813f7bca64877c&oe=59A60642',
@@ -61,7 +61,6 @@ photos['ischgl'] = [
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/15492355_10154134747456088_3806568136049855096_n.jpg?oh=f9aa945626c61f73dcb3923aac8c8a68&oe=599E6F01',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/15977827_10154195260911088_1607500532143613460_n.jpg?oh=a8a8abace87279574ca591a76483d0ad&oe=59E5EA09',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/15665731_10154140306356088_2440751436058426817_n.jpg?oh=f55134e05841786bd7c8fd13fb32739c&oe=599C9790',
-  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/16681566_10154306675821088_8523687978782458213_n.jpg?oh=3e5ea314d001e08ad6ba875fe892e8e4&oe=599CA68D',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/16830927_10154306675971088_2530215352470280992_n.jpg?oh=41c9e369adb74e178fece6f2e3fb88ab&oe=59DD313F',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/16864399_10154306721631088_2559832524122094837_n.jpg?oh=45285f360b6707633dc41cef829770e9&oe=59A32F06',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/16730172_10154306676076088_8969242644137485314_n.jpg?oh=063d78136cb1ef3b04414f55fc2d3c3c&oe=59E177D9',
@@ -87,6 +86,7 @@ photos['nz/aus'] = [
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/483022_10151068060631088_1884618733_n.jpg?oh=b1c6280619a6fb34e3e6b36086b0465c&oe=59CA43D9',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/1655879_10152359729806088_3333734052135620967_n.jpg?oh=fe1647a2c1c8c9eb44ec9a5f6f680648&oe=59CD5578',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/602963_10151346528156088_63519573_n.jpg?oh=8f731722edaac9cc6ec57be57ff1c111&oe=59EA6FFD',
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/551797_10150621320331088_181461278_n.jpg?oh=a60c9712d10b001cadfa8af43b946afe&oe=59C3DD46'
 ];
 
 
@@ -104,7 +104,7 @@ $(document).ready(function(){
 $('#welcome').click(function() {
     $('#welcome').animate({
       top: '-10%',
-    }, { queue: false, duration: 2000} )
+    }, {queue: false, duration: 2000} )
   .animate({
   opacity: "0",
 }, 1000);
@@ -120,24 +120,25 @@ $('#welcome').click(function() {
 
 $(".menu li a").click(function(){
   gallery_location = $(this).parent()[0].id;
-  if (gallery_location === 'ischgl') {
+  if (gallery_location == 'ischgl') {
     $('#backimagediv').html(`<img class='backimage 'src='ischgl_cropped.jpg'/>`);
-  } else if (gallery_location === 'indonesia') {
+  } else if (gallery_location == 'indonesia') {
     $('#backimagediv').html(`<img class='backimage 'src='indonesia_cropped.jpg'/>`);
-  } else if (gallery_location === 'nz/aus') {
+  } else if (gallery_location == 'nz/aus') {
     $('#backimagediv').html(`<img class='backimage 'src='nzaus_cropped.jpg'/>`);
-  } else if (gallery_location === 'iceland') {
+  } else if (gallery_location == 'iceland') {
     $('#backimagediv').html(`<img class='backimage 'src='iceland_cropped.jpg'/>`);
   }
-  if (gridicontype === 'grid') {
+  if (gridicontype == 'grid') {
     scroller_load();
-  } else if (gridicontype === 'scroller') {
+  } else if (gridicontype == 'scroller') {
     grid_load();
   } else {
     grid_load();
   }
   $('#gridicon').fadeIn(1000);
   $('body').css('overflow-y', 'auto')
+  $('.backimage').show();
 });
 
 
@@ -161,10 +162,10 @@ function grid_load() {
 
 
 $('#gridicon').click(function(){
-  if (gridicontype === 'grid') {
+  if (gridicontype == 'grid') {
     grid_load();
   }
-    else if (gridicontype === 'scroller') {
+    else if (gridicontype == 'scroller') {
       scroller_load();
   }
 });
@@ -178,6 +179,7 @@ $('#gridicon').click(function(){
   $('#inner').css("left", 0);
   $('#mainphotodiv').empty();
   $("#buttons").hide();
+  $('#countryinfo').css({'position': 'fixed', 'top': '0', 'left': '0'});
   /*$('#inner').css('width', 0);           deleted code - used to dynamically change the inners width (doesnt work too well) */
 
   for(var i = 0; i < photos[gallery_location].length; i++) {
@@ -215,7 +217,7 @@ function seePhoto(photoNum) {
       $(this).removeClass('opacity');
     $('#mainphoto' + photoNum).hide();
   });
-}
+};
 
 
 
@@ -223,6 +225,9 @@ $(window).scroll(function(){
   parallaxScroll();
   if ($('#backimagediv').offset().top >= 445) {
       $('#countryinfo').css({'position': 'fixed', 'top': '0', 'left': '0'});
+  } else if ($('#backimagediv').offset().top <= 445 && gridicontype == 'grid'){
+    alert ('boom')
+    $('#countryinfo').css('position', 'fixed')
   } else {
     $('#countryinfo').css('position', 'absolute')
   }
@@ -232,7 +237,7 @@ function parallaxScroll(){
     var scrolled = $(window).scrollTop();
     $('#backimagediv').css('top',(0-(scrolled*.25))+'px');
 
-}
+};
 
 
 function seeGridPhotoBig(bigPhotoNum) {
@@ -248,7 +253,7 @@ function seeGridPhotoBig(bigPhotoNum) {
     $('#gridphotobigdiv').hide();
     $('body').css('overflow-y', 'auto')
   })
-}
+};
 
 
 

@@ -2,6 +2,8 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   font-family: 'Century Gothic',  sans-serif;
+  -webkit-font-smoothing: antialiased;             // dont think its working
+  -moz-osx-font-smoothing: grayscale;              // dont think its working
 }
 
 #welcome {
@@ -43,6 +45,7 @@ body {
 
 .backimage {
   width: 100vw;
+  display: none;
 }
 
 
@@ -57,7 +60,7 @@ body {
 
 .menu {
   list-style-type: none;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 130%;
   cursor: default;
   top: 2%;
@@ -65,9 +68,9 @@ body {
   position: relative;
   display: none;
 }
+
 .menu li {
   display: inline-block;
-
 }
 
 .menu li a {
@@ -93,13 +96,13 @@ body {
 #countryinfo {
   width: 20vw;
   height: 1000px;
-  position: absolute;
   background-color: white;
   display: none;
-  padding-left: 20px;
   z-index: 4;
   left: 0;
   margin: 0;
+  box-sizing: border-box;
+  padding: 20px
 }
 
 #gridul {
@@ -216,6 +219,7 @@ body {
   display: none;
   right: 5%;
   bottom: 5%;
+
 
 }
 
