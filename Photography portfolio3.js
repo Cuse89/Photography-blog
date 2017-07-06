@@ -95,27 +95,9 @@ photos['nz/aus'] = [
 var gallery_location = '';
 
 $(document).ready(function(){
-  $('.backimage').hide();
-  $('body').css('overflow-y', 'hidden');
   $('#welcome').css('margin-left', '-' + $('#welcome').width()/2 + 'px')
 });
 
-$('#welcome').click(function() {
-    $('#welcome').animate({
-      top: '-10%',
-    }, {queue: false, duration: 2000} )
-  .animate({
-  opacity: "0",
-}, 1000);
-    $('#introimagediv').animate({
-      top: ('-' + ($('#introimage').height() - $('.backimage').height()) + 'px')
-    }, 4000, function() {
-      $('.backimage').show();
-      $('#introimagediv').hide();
-      $('#welcome').hide();
-      $('.menu').fadeIn(1000);
-    });
-});
 
 $(".menu li a").click(function(){
   gallery_location = $(this).parent()[0].id;

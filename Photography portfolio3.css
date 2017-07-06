@@ -1,7 +1,13 @@
+html {
+  margin: 0;
+}
+
 body {
   overflow-x: hidden;
-  overflow-y: auto;
   font-family: 'Century Gothic',  sans-serif;
+  font-size: 0;        /* it corrects the 'white space' between the letters, which was making the divs larger and the child parallax divs weren't connecting neatly as a result (now need to state font size for child elements)*/
+  display: inline-block;
+  margin: 0;
   -webkit-font-smoothing: antialiased;             /* dont think its working */
   -moz-osx-font-smoothing: grayscale;              /* dont think its working */
 }
@@ -12,53 +18,33 @@ body {
   position: absolute;
   font-size: 36px;
   color: white;
-  cursor: pointer;
   left: 50%;
 }
 
 
-#introimagediv {
+
+#parallaxwrapper {
+  position: relative;
   width: 100vw;
-  z-index: 998;
   left: 0;
   top: 0;
-  position: absolute;
-}
-
-#introimage {
-  width: 100%;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  position: absolute;
-}
-
-#maindiv  {
-  position: absolute;
-  width: 100vw;
-  height: auto;
-  top: 500px;
-  left: 0;
-  z-index: 1;
-  font-size: 0;   /* because its creating 'white space' which is making the div larger and the child footer div doesnt connect neatly as a result (now need to state font size for child elements)*/
-  display: inline-block;
 }
 
 .parallaximage {
-  display: none;
+  display: inline-block;
 
 
 }
 
 #parallaximage_iceland {
-  background-image: url('iceland_cropped.jpg');
+  background-image: url('iceland_extended.jpg');
   background-size: cover;
   background-attachment: fixed;
   width: 100vw;
-  height: 500px;
+  height: 1000px;
   position: relative;
   font-size: 16px;
-  z-index: 5;
+
 }
 
 #parallaximage_indonesia {
@@ -69,7 +55,7 @@ body {
   height: 500px;
   position: relative;
   font-size: 16px;
-  z-index: 5;
+
 }
 
 #parallaximage_ischgl {
@@ -80,7 +66,7 @@ body {
   height: 500px;
   position: relative;
   font-size: 16px;
-  z-index: 5;
+
 }
 
 #parallaximage_nzaus {
@@ -91,7 +77,7 @@ body {
   height: 700px;
   position: relative;
   font-size: 16px;
-  z-index: 5;
+
 }
 
 #backimagediv {
@@ -116,7 +102,6 @@ body {
   top: 10px;
   left: 50px;
   position: absolute;
-  display: none;
 
 }
 
@@ -137,8 +122,8 @@ body {
 
 
 #griddiv {
-  position: relative;
-  top: 0;
+  position: absolute;
+  top: 400px;
   width: 100vw;
   background-color: white;
   left: 0;
