@@ -97,7 +97,7 @@ var gallery_location = '';
 $(document).ready(function(){
   $('.backimage').hide();
   $('body').css('overflow-y', 'hidden');
-  $('#welcome').css('margin-left', $('#welcome').width()/2 + 'px')
+  $('#welcome').css('margin-left', '-' + $('#welcome').width()/2 + 'px')
 });
 
 $('#welcome').click(function() {
@@ -145,9 +145,11 @@ function grid_load() {
     $('#gridphotobigdiv').append(`<img class= 'gridphotobig' id='gridphotobig${i+1}' src='${photos[gallery_location][i]}'/>`);
   seeGridPhotoBig(i+1);
   };
+  $('#maindiv').fadeIn(1000);
   $('#gridphotobigdiv').append(`<span id="close">&times;</span>`)
   $('#gridul').fadeIn(1000);
   $('#countryinfo').fadeIn(1000);
+  $('.parallaximage').show();
   };
 
 
@@ -155,17 +157,19 @@ function grid_load() {
 
 $(window).scroll(function(){
   parallaxScroll();
-  if ($('#backimagediv').offset().top >= 445) {
+  if ($(window).scrollTop() >= 500) {
       $('#countryinfo').css({'position': 'fixed', 'top': '0', 'left': '0'});
   } else {
     $('#countryinfo').css('position', 'absolute')
-  }
-})
+  };
+
+
+});
+
 
 function parallaxScroll(){
     var scrolled = $(window).scrollTop();
-    $('#backimagediv').css('top',(0-(scrolled*.25))+'px');
-
+    $('#backimagediv').css('top',(0+(scrolled*.25))+'px');
 };
 
 

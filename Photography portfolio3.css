@@ -2,8 +2,8 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   font-family: 'Century Gothic',  sans-serif;
-  -webkit-font-smoothing: antialiased;             // dont think its working
-  -moz-osx-font-smoothing: grayscale;              // dont think its working
+  -webkit-font-smoothing: antialiased;             /* dont think its working */
+  -moz-osx-font-smoothing: grayscale;              /* dont think its working */
 }
 
 #welcome {
@@ -13,12 +13,12 @@ body {
   font-size: 36px;
   color: white;
   cursor: pointer;
+  left: 50%;
 }
 
 
 #introimagediv {
   width: 100vw;
-  height: auto;
   z-index: 998;
   left: 0;
   top: 0;
@@ -33,14 +33,74 @@ body {
   position: absolute;
 }
 
+#maindiv  {
+  position: absolute;
+  width: 100vw;
+  height: auto;
+  top: 500px;
+  left: 0;
+  z-index: 1;
+  font-size: 0;   /* because its creating 'white space' which is making the div larger and the child footer div doesnt connect neatly as a result (now need to state font size for child elements)*/
+  display: inline-block;
+}
+
+.parallaximage {
+  display: inline-block;
+
+
+}
+
+#parallaximage_iceland {
+  background-image: url('iceland_cropped.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100vw;
+  height: 500px;
+  position: relative;
+  font-size: 16px;
+  z-index: 5;
+}
+
+#parallaximage_indonesia {
+  background-image: url('indonesia_cropped.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100vw;
+  height: 500px;
+  position: relative;
+  font-size: 16px;
+  z-index: 5;
+}
+
+#parallaximage_ischgl {
+  background-image: url('ischgl_cropped.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100vw;
+  height: 500px;
+  position: relative;
+  font-size: 16px;
+  z-index: 5;
+}
+
+#parallaximage_nzaus {
+  background-image: url('nzaus_cropped.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100vw;
+  height: 700px;
+  position: relative;
+  font-size: 16px;
+  z-index: 5;
+}
+
 #backimagediv {
   width: 100vw;
   height: auto;
   z-index: 0;
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 0;
-
 }
 
 .backimage {
@@ -53,10 +113,11 @@ body {
   font-size: 22px;
   line-height: 130%;
   cursor: default;
-  top: 2%;
-  left: 100px;
-  position: relative;
+  top: 10px;
+  left: 50px;
+  position: absolute;
   display: none;
+
 }
 
 .menu li {
@@ -76,12 +137,17 @@ body {
 
 
 #griddiv {
-  position: absolute;
-  top: 90%;
-  width: 100%;
+  position: relative;
+  top: 0;
+  width: 100vw;
   background-color: white;
   left: 0;
+  z-index: 1;
+  display: inline-block;
+  margin-bottom: 0;
 }
+
+
 
 #countryinfo {
   width: 20vw;
@@ -92,7 +158,9 @@ body {
   left: 0;
   margin: 0;
   box-sizing: border-box;
-  padding: 20px
+  padding: 20px;
+  font-size: 16px;
+  /* jscript is making it position absolute, when its not fixed */
 }
 
 #gridul {
@@ -142,6 +210,8 @@ body {
 .gridphoto:hover {
   transform: scale(1.2);
 }
+
+
 
 #gridphotobigdiv {
   height: 100vh;
