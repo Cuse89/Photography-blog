@@ -45,7 +45,7 @@ body {
 }
 
 .parallaximage {
-  display: inline-block;
+  display: none;
 
 
 }
