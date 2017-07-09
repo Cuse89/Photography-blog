@@ -1,24 +1,51 @@
 html {
   margin: 0;
+  font-size: 0;
+          /* it corrects the 'white space' between the letters, which was making the divs larger and the child parallax divs weren't connecting neatly as a result (now need to state font size for child elements)*/
 }
 
 body {
   overflow-x: hidden;
   font-family: 'Century Gothic',  sans-serif;
-  font-size: 0;        /* it corrects the 'white space' between the letters, which was making the divs larger and the child parallax divs weren't connecting neatly as a result (now need to state font size for child elements)*/
   display: inline-block;
   margin: 0;
   -webkit-font-smoothing: antialiased;             /* dont think its working */
   -moz-osx-font-smoothing: grayscale;              /* dont think its working */
+  font-size: 0;
 }
 
-#welcome {
-  z-index: 999;
-  top: 25%;
-  position: absolute;
-  font-size: 36px;
-  color: white;
+#navbar {
+  width: 100vw;
+  height: 70px;
+  background-color: #1b2327;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  position: fixed;
+}
+
+#menu {
+  list-style-type: none;
+  font-size: 22px;
+  line-height: 130%;
+  cursor: default;
+  top: 20px;
   left: 50%;
+  position: absolute;
+}
+
+#menu li {
+  display: inline-block;
+  padding-right: 30px;
+}
+
+#menu li a {
+  text-decoration: none;
+  margin: 0;
+  color: #a5a5a5;
+}
+
+#menu li a:hover {
+  opacity: 0.5;
 }
 
 
@@ -27,21 +54,20 @@ body {
   position: relative;
   width: 100vw;
   left: 0;
-  top: 0;
+  margin: 0;
+  top: 70px;
 }
 
 .parallaximage {
   display: inline-block;
-
-
 }
 
 #parallaximage_iceland {
-  background-image: url('iceland_extended.jpg');
+  background-image: url('iceland_cropped.jpg');
   background-size: cover;
   background-attachment: fixed;
   width: 100vw;
-  height: 1000px;
+  height: 500px;
   position: relative;
   font-size: 16px;
 
@@ -74,10 +100,26 @@ body {
   background-size: cover;
   background-attachment: fixed;
   width: 100vw;
-  height: 700px;
+  height: 500px;
   position: relative;
   font-size: 16px;
 
+}
+
+.parallaxlink {
+  left: 50%;
+  top: 200px;
+  width: 200px;
+  position: absolute;
+  font-size: 36px;
+  text-align: center;
+  margin-left: -100px;
+  cursor: pointer;
+}
+
+.parallaxlink a {
+  text-decoration: none;
+  color: white;
 }
 
 #backimagediv {
@@ -94,36 +136,8 @@ body {
 }
 
 
-.menu {
-  list-style-type: none;
-  font-size: 22px;
-  line-height: 130%;
-  cursor: default;
-  top: 10px;
-  left: 50px;
-  position: absolute;
-
-}
-
-.menu li {
-  display: inline-block;
-}
-
-.menu li a {
-  text-decoration: none;
-  padding-right: 40px;
-  margin: 0;
-  color: white;
-}
-
-.menu li a:hover {
-  opacity: 0.5;
-}
-
-
 #griddiv {
-  position: absolute;
-  top: 400px;
+  position: relative;
   width: 100vw;
   background-color: white;
   left: 0;
@@ -136,7 +150,6 @@ body {
 
 #countryinfo {
   width: 20vw;
-  height: 1000px;
   background-color: white;
   display: none;
   z-index: 4;
@@ -145,6 +158,7 @@ body {
   box-sizing: border-box;
   padding: 20px;
   font-size: 16px;
+  position: absolute;
   /* jscript is making it position absolute, when its not fixed */
 }
 

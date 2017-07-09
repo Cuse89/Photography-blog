@@ -21,8 +21,8 @@ photos['iceland'] = [
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14601112_10153928627961088_1329948127232212228_n.jpg?oh=f003fba6ef6c4587cddd26d9615c17a2&oe=59DF7520',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14494807_10153928628096088_5704970143888508819_n.jpg?oh=c38e0af35e325847845d08b91fcec329&oe=59D17D67',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14494739_10153928626141088_7384431587179217375_n.jpg?oh=2a98c083d9da6f68e3a08f849333a407&oe=59DA05A5',
-  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14470505_10153928628551088_501650544096908355_n.jpg?oh=922cc53f11eb6edb525f819f1a8d4146&oe=59D3CD7D',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14485079_10153928625396088_1313510254542210929_n.jpg?oh=ebb7a3f883802472df9f5c5bd97696c0&oe=59DF000E',
+  'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/14502789_10153928625091088_8402110054420830849_n.jpg?oh=fef781ba18b2743229e758b04b23fc53&oe=5A07BF39'
   ];
 
 photos['indonesia'] = [
@@ -68,7 +68,7 @@ photos['ischgl'] = [
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/16807315_10154306676031088_7552508042207002906_n.jpg?oh=c9c6464939394a61b54df2d365d26503&oe=59A8AC46',
 ];
 
-photos['nz/aus'] = [
+photos['nzaus'] = [
   'windmill.jpg',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/66213_10151111993926088_1286030794_n.jpg?oh=f6c3b63b392951bf2914dad73d15bdd6&oe=599D62C8',
   'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-9/19149231_10154632677866088_7146363810180398873_n.jpg?oh=37b62377f18d3ed4ca70bcebbd5b5dac&oe=59DB545D',
@@ -91,28 +91,50 @@ photos['nz/aus'] = [
 
 
 
-
+var homepage = true
 var gallery_location = '';
 
 $(document).ready(function(){
   $('#welcome').css('margin-left', '-' + $('#welcome').width()/2 + 'px')
+  $('#menu').css('margin-left', '-' + $('#menu').width()/2 + 'px')
 });
 
+$('#home').click(function(){
+  $('.parallaximage').show();
+  $('#griddiv').hide();
+})
 
-$(".menu li a").click(function(){
-  gallery_location = $(this).parent()[0].id;
-  if (gallery_location == 'ischgl') {
-    $('#backimagediv').html(`<img class='backimage 'src='ischgl_cropped.jpg'/>`);
+$(".menubutton a").click(function(){
+  $('#griddiv').show();
+  $('#gridul').empty();
+  $('.parallaximage').show();
+  gallery_location = $(this).parent().data('location')
+  if (gallery_location == 'iceland') {
+
+      $('.parallaximage').not($('#parallaximage_' + gallery_location)).hide();
+    $("#griddiv").insertAfter($('#parallaximage_iceland'));
   } else if (gallery_location == 'indonesia') {
-    $('#backimagediv').html(`<img class='backimage 'src='indonesia_cropped.jpg'/>`);
-  } else if (gallery_location == 'nz/aus') {
-    $('#backimagediv').html(`<img class='backimage 'src='nzaus_cropped.jpg'/>`);
-  } else if (gallery_location == 'iceland') {
-    $('#backimagediv').html(`<img class='backimage 'src='iceland_cropped.jpg'/>`);
-  }
+
+      $('.parallaximage').not($('#parallaximage_' + gallery_location)).hide();
+    $("#griddiv").insertAfter($('#parallaximage_indonesia'));
+  } else if (gallery_location == 'ischgl') {
+
+      $('.parallaximage').not($('#parallaximage_' + gallery_location)).hide();
+    $("#griddiv").insertAfter($('#parallaximage_ischgl'));
+  } else if (gallery_location == 'nzaus') {
+
+      $('.parallaximage').not($('#parallaximage_' + gallery_location)).hide();
+    $("#griddiv").insertAfter($('#parallaximage_nzaus'));
+  };
+
+/*  $('html, body').animate({
+      scrollTop: ($("#parallaximage_" + gallery_location).offset().top - $('#navbar').height())
+  }); */
+
+
   grid_load();
-  $('body').css('overflow-y', 'auto')
-  $('.backimage').show();
+  $('body').css('overflow-y', 'auto');
+  homepage = false;
 });
 
 
@@ -131,7 +153,6 @@ function grid_load() {
   $('#gridphotobigdiv').append(`<span id="close">&times;</span>`)
   $('#gridul').fadeIn(1000);
   $('#countryinfo').fadeIn(1000);
-  $('.parallaximage').show();
   };
 
 
@@ -139,13 +160,11 @@ function grid_load() {
 
 $(window).scroll(function(){
   parallaxScroll();
-  if ($(window).scrollTop() >= 500) {
-      $('#countryinfo').css({'position': 'fixed', 'top': '0', 'left': '0'});
+  if ($(window).scrollTop() >= ($('#griddiv').offset().top - 70)) {
+      $('#countryinfo').css({'position': 'fixed', 'top': '70px', 'left': '0'});
   } else {
     $('#countryinfo').css('position', 'absolute')
   };
-
-
 });
 
 
