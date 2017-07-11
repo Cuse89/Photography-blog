@@ -161,9 +161,9 @@ function grid_load() {
 $(window).scroll(function(){
   parallaxScroll();
   if ($(window).scrollTop() >= ($('#griddiv').offset().top - 70)) {
-      $('#countryinfo').css({'position': 'fixed', 'top': '70px', 'left': '0'});
+      $('#countryinfo').css({'position': 'fixed', 'top': '80px', 'left': '0'});
   } else {
-    $('#countryinfo').css('position', 'absolute')
+    $('#countryinfo').css({'position': 'absolute', 'top': '10px'});
   };
 });
 
@@ -176,6 +176,7 @@ function parallaxScroll(){
 
 function seeGridPhotoBig(bigPhotoNum) {
   $('#gridphoto' + bigPhotoNum).click(function(){
+    $('#navbar').hide();
     $('#gridphotobigdiv').show();
     $('#gridphotobig' + bigPhotoNum).show();
     $('.gridphotobig').css('margin-left', '-' + $('#gridphotobig' + bigPhotoNum).width()/2 + 'px'); //centering the main photo
@@ -186,6 +187,7 @@ function seeGridPhotoBig(bigPhotoNum) {
     $('.gridphotobig').hide();
     $('#gridphotobigdiv').hide();
     $('body').css('overflow-y', 'auto')
+    $('#navbar').show();
   })
 };
 
