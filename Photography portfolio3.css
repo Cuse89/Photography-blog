@@ -9,8 +9,8 @@ body {
   font-family: 'Century Gothic',  sans-serif;
   display: inline-block;
   margin: 0;
-  -webkit-font-smoothing: antialiased;             /* dont think its working */
-  -moz-osx-font-smoothing: grayscale;              /* dont think its working */
+  -webkit-font-smoothing: antialiased;             
+  -moz-osx-font-smoothing: grayscale;
   font-size: 0;
 }
 

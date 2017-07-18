@@ -91,8 +91,8 @@ var gallery_location = '';
 
 
 $(document).ready(function(){
-  $('#welcome').css('margin-left', '-' + $('#welcome').width()/2 + 'px')
-  $('#menu').css('margin-left', '-' + $('#menu').width()/2 + 'px')
+  $('#welcome').css('margin-left', '-' + $('#welcome').width()/2 + 'px');
+  $('#menu').css('margin-left', '-' + $('#menu').width()/2 + 'px');
 });
 
 $('#home').click(function(){
@@ -107,7 +107,7 @@ $('.menu_button a').click(function(){
   $('.parallax_image').show();
   gallery_location = $(this).parent().data('location');
   $('.parallax_image').not($('#parallax_image_' + gallery_location)).hide();
-  $('.blog_listing').hide()
+  $('.blog_listing').hide();
   if (gallery_location == 'iceland') {
     $('#content').insertAfter($('#parallax_image_iceland'));
     $('#country').html('Iceland');
@@ -141,7 +141,7 @@ function grid_load() {
     $('#grid_photo_big_wrapper').append(`<img class= 'grid_photo_big' id='grid_photo_big${i+1}' src='${photos[gallery_location][i]}'/>`);
   see_grid_photo_big(i+1);
   };
-  $('#grid_photo_big_wrapper').append(`<span id='close'>&times;</span>`)
+  $('#grid_photo_big_wrapper').append(`<span id='close'>&times;</span>`);
   $('#grid').fadeIn(1000);
   $('#country_info').fadeIn(1000);
   };
@@ -165,12 +165,12 @@ function see_grid_photo_big(big_photo_num) {
     $('#grid_photo_big' + big_photo_num).show();
     $('.grid_photo_big').css('margin-left', '-' + $('#grid_photo_big' + big_photo_num).width()/2 + 'px'); //centering the main photo
     $('.grid_photo_big').css('margin-top', '-' + $('#grid_photo_big' + big_photo_num).height()/2 + 'px');
-    $('body').css('overflow-y', 'hidden')
+    $('body').css('overflow-y', 'hidden');
   });
   $(document).on('click', '#close', function(){      //used 'event delegation', as the span is added dynamically
     $('.grid_photo_big').hide();
     $('#grid_photo_big_wrapper').hide();
-    $('body').css('overflow-y', 'auto')
+    $('body').css('overflow-y', 'auto');
     $('#nav_bar').show();
   })
 };
