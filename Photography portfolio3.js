@@ -101,23 +101,29 @@ $('#home').click(function(){
   homepage = true;
 });
 
-$(".menu_button a").click(function(){
+$('.menu_button a').click(function(){
   $('#content').show();
   $('#grid').empty();
   $('.parallax_image').show();
-  gallery_location = $(this).parent().data('location')
+  gallery_location = $(this).parent().data('location');
+  $('.parallax_image').not($('#parallax_image_' + gallery_location)).hide();
+  $('.blog_listing').hide()
   if (gallery_location == 'iceland') {
-      $('.parallax_image').not($('#parallax_image_' + gallery_location)).hide();
-    $("#content").insertAfter($('#parallax_image_iceland'));
+    $('#content').insertAfter($('#parallax_image_iceland'));
+    $('#country').html('Iceland');
+    $('#blog_listing_iceland').show();
   } else if (gallery_location == 'indonesia') {
-      $('.parallax_image').not($('#parallax_image_' + gallery_location)).hide();
-    $("#content").insertAfter($('#parallax_image_indonesia'));
+    $('#content').insertAfter($('#parallax_image_indonesia'));
+    $('#country').html('Indonesia');
+    $('#blog_listing_indonesia').show();
   } else if (gallery_location == 'austria') {
-      $('.parallax_image').not($('#parallax_image_' + gallery_location)).hide();
-    $("#content").insertAfter($('#parallax_image_austria'));
+    $('#content').insertAfter($('#parallax_image_austria'));
+    $('#country').html('Austria');
+    $('#blog_listing_austria').show();
   } else if (gallery_location == 'nzaus') {
-      $('.parallax_image').not($('#parallax_image_' + gallery_location)).hide();
-    $("#content").insertAfter($('#parallax_image_nzaus'));
+    $('#content').insertAfter($('#parallax_image_nzaus'));
+    $('#country').html('NZ/Aus');
+    $('#blog_listing_nzaus').show();
   };
   grid_load();
   $('body').css('overflow-y', 'auto');
@@ -135,7 +141,7 @@ function grid_load() {
     $('#grid_photo_big_wrapper').append(`<img class= 'grid_photo_big' id='grid_photo_big${i+1}' src='${photos[gallery_location][i]}'/>`);
   see_grid_photo_big(i+1);
   };
-  $('#grid_photo_big_wrapper').append(`<span id="close">&times;</span>`)
+  $('#grid_photo_big_wrapper').append(`<span id='close'>&times;</span>`)
   $('#grid').fadeIn(1000);
   $('#country_info').fadeIn(1000);
   };
@@ -144,7 +150,6 @@ function grid_load() {
 
 
 $(window).scroll(function(){
-  parallaxScroll();
   if ($(window).scrollTop() >= ($('#content').offset().top - 70) && homepage === false) {
       $('#country_info').css({'position': 'fixed', 'top': '80px', 'left': '0'});
   } else {
