@@ -6,8 +6,8 @@ Travel-blog.css
 
 Travel-blog.js
 
-Webpage is designed so that the amount of work needed to upload a new country blog is as limited as possible.
-The only work needed to do is:
+Webpage is designed so that the amount of work needed to upload any future country blogs is as limited as possible.
+The only work that would be needed to do is:
 
 HTML-
 - type new blog for country (following same structure as others)
