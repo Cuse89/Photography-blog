@@ -10,7 +10,7 @@ Webpage is designed so that the amount of work needed to upload any future count
 The only work that would be needed to do is:
 
 HTML-
-- type new blog for country (following same structure as others)
+- Type new blog for country (following same structure as others)
 
 CSS-
 - 1 line of code (following same structure as others)
