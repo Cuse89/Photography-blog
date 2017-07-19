@@ -11,6 +11,7 @@ The only work that would be needed to do is:
 
 HTML-
 - Type new blog for country (following same structure as others)
+- Create new parallax menu section and menu button simply following same structure
 
 CSS-
 - 1 line of code (following same structure as others)
