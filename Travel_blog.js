@@ -111,23 +111,28 @@ $('.menu_button a').click(function(){
   gallery_location = $(this).parent().data('location');
   $('.parallax_image').not($('#parallax_image_' + gallery_location)).hide();
   $('.blog_listing').hide();
-  if (gallery_location == 'iceland') {
-    $('#content').insertAfter($('#parallax_image_iceland'));
-    $('#country').html('Iceland');
-    $('#blog_listing_iceland').show();
-  } else if (gallery_location == 'indonesia') {
-    $('#content').insertAfter($('#parallax_image_indonesia'));
-    $('#country').html('Indonesia');
-    $('#blog_listing_indonesia').show();
-  } else if (gallery_location == 'austria') {
-    $('#content').insertAfter($('#parallax_image_austria'));
-    $('#country').html('Austria');
-    $('#blog_listing_austria').show();
-  } else if (gallery_location == 'nzaus') {
-    $('#content').insertAfter($('#parallax_image_nzaus'));
-    $('#country').html('NZ/Aus');
-    $('#blog_listing_nzaus').show();
-  };
+switch (gallery_location) {
+  case 'iceland':
+  $('#content').insertAfter($('#parallax_image_iceland'));
+  $('#country').html('Iceland');
+  $('#blog_listing_iceland').show();
+    break;
+  case 'indonesia':
+  $('#content').insertAfter($('#parallax_image_indonesia'));
+  $('#country').html('Indonesia');
+  $('#blog_listing_indonesia').show();
+    break;
+  case 'austria':
+  $('#content').insertAfter($('#parallax_image_austria'));
+  $('#country').html('Austria');
+  $('#blog_listing_austria').show();
+      break;
+  case 'nzaus':
+  $('#content').insertAfter($('#parallax_image_nzaus'));
+  $('#country').html('NZ/Aus');
+  $('#blog_listing_nzaus').show();
+    break;
+};
   $('body').css('overflow-y', 'auto');
   homepage = false;
   grid_load();
