@@ -1,8 +1,10 @@
 Travel blog used to showcase programming techniques used including HTML, CSS, Javascript and jQuery
 
--Index.html
--Travel-blog.css
--Travel-blog.js
+Index.html
+
+Travel-blog.css
+
+Travel-blog.js
 
 Webpage is designed so that the amount of work needed to upload a new country blog is as limited as possible.
 The only work needed to do is:
