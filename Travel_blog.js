@@ -87,13 +87,14 @@ photos['nzaus'] = [
   'http://i.imgur.com/l22yQRZ.jpg',
 ];
 
-var gallery_location = '';
-
+/*Initialising variables for more reliable performance*/
+var homepage = true
+var gallery_location = ''
 
 $(document).ready(function(){
-  $('#welcome').css('margin-left', '-' + $('#welcome').width()/2 + 'px');
   $('#menu').css('margin-left', '-' + $('#menu').width()/2 + 'px');
 });
+
 
 $('#home').click(function(){
   $('.parallax_image').show();
@@ -101,10 +102,12 @@ $('#home').click(function(){
   homepage = true;
 });
 
+
 $('.menu_button a').click(function(){
   $('#content').show();
   $('#grid').empty();
   $('.parallax_image').show();
+  /*Each 'menu_button a' is assigned a html data attribute according to its array name, which the gallery_location variable collects once clicked*/
   gallery_location = $(this).parent().data('location');
   $('.parallax_image').not($('#parallax_image_' + gallery_location)).hide();
   $('.blog_listing').hide();
@@ -125,9 +128,9 @@ $('.menu_button a').click(function(){
     $('#country').html('NZ/Aus');
     $('#blog_listing_nzaus').show();
   };
-  grid_load();
   $('body').css('overflow-y', 'auto');
   homepage = false;
+  grid_load();
 });
 
 
@@ -136,6 +139,7 @@ function grid_load() {
   $('#buttons').fadeOut(1000);
   $('#grid').empty();
   $('#grid_photo_big_wrapper').empty();
+  /*loops through the relevant photo array and appends the images to the grid*/
   for(var i = 0; i < photos[gallery_location].length; i++) {
     $('#grid').append(`<li class='grid_list'><div class='image_holder'><img class='grid_photo' id='grid_photo${i+1}' src='${photos[gallery_location][i]}'/></div></li>`);
     $('#grid_photo_big_wrapper').append(`<img class= 'grid_photo_big' id='grid_photo_big${i+1}' src='${photos[gallery_location][i]}'/>`);
@@ -147,8 +151,7 @@ function grid_load() {
   };
 
 
-
-
+/*Function to fix the country_info in position as the page is scrolled further. This is where the homepage variable comes into use - to fix a problem that caused the country_info to stay fixed (until you scrolled) when navigatiing from the homepage to a country page*/
 $(window).scroll(function(){
   if ($(window).scrollTop() >= ($('#content').offset().top - 70) && homepage === false) {
       $('#country_info').css({'position': 'fixed', 'top': '80px', 'left': '0'});
@@ -163,11 +166,13 @@ function see_grid_photo_big(big_photo_num) {
     $('#nav_bar').hide();
     $('#grid_photo_big_wrapper').show();
     $('#grid_photo_big' + big_photo_num).show();
-    $('.grid_photo_big').css('margin-left', '-' + $('#grid_photo_big' + big_photo_num).width()/2 + 'px'); //centering the main photo
+/*centering the main photo*/
+    $('.grid_photo_big').css('margin-left', '-' + $('#grid_photo_big' + big_photo_num).width()/2 + 'px');
     $('.grid_photo_big').css('margin-top', '-' + $('#grid_photo_big' + big_photo_num).height()/2 + 'px');
     $('body').css('overflow-y', 'hidden');
   });
-  $(document).on('click', '#close', function(){      //used 'event delegation', as the span is added dynamically
+/*Using 'event delegation', as the span ('#close') is added dynamically*/
+  $(document).on('click', '#close', function(){
     $('.grid_photo_big').hide();
     $('#grid_photo_big_wrapper').hide();
     $('body').css('overflow-y', 'auto');

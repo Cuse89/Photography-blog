@@ -9,7 +9,7 @@ body {
   font-family: 'Century Gothic',  sans-serif;
   display: inline-block;
   margin: 0;
-  -webkit-font-smoothing: antialiased;             
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 0;
 }
@@ -31,6 +31,7 @@ body {
   top: 20px;
   left: 50%;
   position: absolute;
+  /*jscript is positioning the menu centre according to its width*/
 }
 
 #menu li {
