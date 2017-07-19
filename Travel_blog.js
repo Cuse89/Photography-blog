@@ -163,7 +163,6 @@ $(window).scroll(function(){
 
 function see_grid_photo_big(big_photo_num) {
   $('#grid_photo' + big_photo_num).click(function(){
-    $('#nav_bar').hide();
     $('#grid_photo_big_wrapper').show();
     $('#grid_photo_big' + big_photo_num).show();
 /*centering the main photo*/
@@ -176,6 +175,5 @@ function see_grid_photo_big(big_photo_num) {
     $('.grid_photo_big').hide();
     $('#grid_photo_big_wrapper').hide();
     $('body').css('overflow-y', 'auto');
-    $('#nav_bar').show();
   })
 };
