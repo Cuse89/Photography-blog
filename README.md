@@ -14,7 +14,7 @@ HTML-
 - Create new parallax menu section and menu button simply following same structure
 
 CSS-
-- 1 line of code (following same structure as others)
+- 1 line of code linking to background photo (following same structure as others)
 
 Javascript-
 - Create a new javascript photo array in preferred order of photos (the same as others, ensuring array and html data attribute are the same word)
