@@ -89,7 +89,7 @@ photos['nzaus'] = [
 
 /*Initialising variables for more reliable performance*/
 var homepage = true
-var gallery_location = ''
+var galleryLocation = ''
 
 $(document).ready(function(){
   $('#menu').css('margin-left', '-' + $('#menu').width()/2 + 'px');
@@ -108,10 +108,10 @@ $('.menu_button a').click(function(){
   $('#grid').empty();
   $('.parallax_image').show();
   /*Each 'menu_button a' is assigned a html data attribute according to its array name, which the gallery_location variable collects once clicked*/
-  gallery_location = $(this).parent().data('location');
-  $('.parallax_image').not($('#parallax_image_' + gallery_location)).hide();
+  galleryLocation = $(this).parent().data('location');
+  $('.parallax_image').not($('#parallax_image_' + galleryLocation)).hide();
   $('.blog_listing').hide();
-switch (gallery_location) {
+switch (galleryLocation) {
   case 'iceland':
   $('#content').insertAfter($('#parallax_image_iceland'));
   $('#country').html('Iceland');
@@ -135,20 +135,20 @@ switch (gallery_location) {
 };
   $('body').css('overflow-y', 'auto');
   homepage = false;
-  grid_load();
+  gridLoad();
 });
 
 
-function grid_load() {
+function gridLoad() {
   $('.thumbnail').fadeOut(1000);
   $('#buttons').fadeOut(1000);
   $('#grid').empty();
   $('#grid_photo_big_wrapper').empty();
   /*loops through the relevant photo array and appends the images to the grid*/
-  for(var i = 0; i < photos[gallery_location].length; i++) {
-    $('#grid').append(`<li class='grid_list'><div class='image_holder'><img class='grid_photo' id='grid_photo${i+1}' src='${photos[gallery_location][i]}'/></div></li>`);
-    $('#grid_photo_big_wrapper').append(`<img class= 'grid_photo_big' id='grid_photo_big${i+1}' src='${photos[gallery_location][i]}'/>`);
-  see_grid_photo_big(i+1);
+  for(var i = 0; i < photos[galleryLocation].length; i++) {
+    $('#grid').append(`<li class='grid_list'><div class='image_holder'><img class='grid_photo' id='grid_photo${i+1}' src='${photos[galleryLocation][i]}'/></div></li>`);
+    $('#grid_photo_big_wrapper').append(`<img class= 'grid_photo_big' id='grid_photo_big${i+1}' src='${photos[galleryLocation][i]}'/>`);
+  seeGridPhotoBig(i+1);
   };
   $('#grid_photo_big_wrapper').append(`<span id='close'>&times;</span>`);
   $('#grid').fadeIn(1000);
@@ -166,13 +166,13 @@ $(window).scroll(function(){
 });
 
 
-function see_grid_photo_big(big_photo_num) {
-  $('#grid_photo' + big_photo_num).click(function(){
+function seeGridPhotoBig(bigPhotoNum) {
+  $('#grid_photo' + bigPhotoNum).click(function(){
     $('#grid_photo_big_wrapper').show();
-    $('#grid_photo_big' + big_photo_num).show();
+    $('#grid_photo_big' + bigPhotoNum).show();
 /*centering the main photo*/
-    $('.grid_photo_big').css('margin-left', '-' + $('#grid_photo_big' + big_photo_num).width()/2 + 'px');
-    $('.grid_photo_big').css('margin-top', '-' + $('#grid_photo_big' + big_photo_num).height()/2 + 'px');
+    $('.grid_photo_big').css('margin-left', '-' + $('#grid_photo_big' + bigPhotoNum).width()/2 + 'px');
+    $('.grid_photo_big').css('margin-top', '-' + $('#grid_photo_big' + bigPhotoNum).height()/2 + 'px');
     $('body').css('overflow-y', 'hidden');
   });
 /*Using 'event delegation', as the span ('#close') is added dynamically*/
