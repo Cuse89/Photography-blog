@@ -17,8 +17,7 @@ body {
 #nav_bar {
   width: 100vw;
   height: 70px;
-  background-color: #1b2327;
-  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+  background-color: #0f3c47;
   z-index: 2;
   position: fixed;
 }
