@@ -111,7 +111,6 @@ $('.menu_button a').click(function(){
   $('.parallax_image').not($('#parallax_image_' + galleryLocation)).hide();
   $('.country_info').hide();
   $('body').css('overflow-y', 'auto');
-  $('#grid').empty();
   $('#grid_photo_big_wrapper').empty();
   $('#content').show();
   $('#content').insertAfter($('#parallax_image_' + galleryLocation));
