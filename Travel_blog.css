@@ -108,7 +108,7 @@ body {
   margin-bottom: 0;
 }
 
-#country_info {
+.country_info {
   width: 20vw;
   background-color: white;
   display: none;

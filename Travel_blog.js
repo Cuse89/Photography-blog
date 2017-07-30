@@ -104,46 +104,18 @@ $('#home').click(function(){
 
 
 $('.menu_button a').click(function(){
-  $('#content').show();
   $('#grid').empty();
   $('.parallax_image').show();
   /*Each 'menu_button a' is assigned a html data attribute according to its array name, which the gallery_location variable collects once clicked*/
   galleryLocation = $(this).parent().data('location');
   $('.parallax_image').not($('#parallax_image_' + galleryLocation)).hide();
-  $('.blog_listing').hide();
-switch (galleryLocation) {
-  case 'iceland':
-  $('#content').insertAfter($('#parallax_image_iceland'));
-  $('#country').html('Iceland');
-  $('#blog_listing_iceland').show();
-    break;
-  case 'indonesia':
-  $('#content').insertAfter($('#parallax_image_indonesia'));
-  $('#country').html('Indonesia');
-  $('#blog_listing_indonesia').show();
-    break;
-  case 'austria':
-  $('#content').insertAfter($('#parallax_image_austria'));
-  $('#country').html('Austria');
-  $('#blog_listing_austria').show();
-      break;
-  case 'nzaus':
-  $('#content').insertAfter($('#parallax_image_nzaus'));
-  $('#country').html('NZ/Aus');
-  $('#blog_listing_nzaus').show();
-    break;
-};
+  $('.country_info').hide();
   $('body').css('overflow-y', 'auto');
-  homepage = false;
-  gridLoad();
-});
-
-
-function gridLoad() {
-  $('.thumbnail').fadeOut(1000);
-  $('#buttons').fadeOut(1000);
   $('#grid').empty();
   $('#grid_photo_big_wrapper').empty();
+  $('#content').show();
+  $('#content').insertAfter($('#parallax_image_' + galleryLocation));
+  $('#country_info_' + galleryLocation).show();
   /*loops through the relevant photo array and appends the images to the grid*/
   for(var i = 0; i < photos[galleryLocation].length; i++) {
     $('#grid').append(`<li class='grid_list'><div class='image_holder'><img class='grid_photo' id='grid_photo${i+1}' src='${photos[galleryLocation][i]}'/></div></li>`);
@@ -151,17 +123,18 @@ function gridLoad() {
   seeGridPhotoBig(i+1);
   };
   $('#grid_photo_big_wrapper').append(`<span id='close'>&times;</span>`);
-  $('#grid').fadeIn(1000);
-  $('#country_info').fadeIn(1000);
-  };
+  $('#grid').show();
+  homepage = false;
+});
+
 
 
 /*Function to fix the country_info in position as the page is scrolled further. This is where the homepage variable comes into use - to fix a problem that caused the country_info to stay fixed (until you scrolled) when navigatiing from the homepage to a country page*/
 $(window).scroll(function(){
   if ($(window).scrollTop() >= ($('#content').offset().top - 70) && homepage === false) {
-      $('#country_info').css({'position': 'fixed', 'top': '80px', 'left': '0'});
+      $('.country_info').css({'position': 'fixed', 'top': '80px', 'left': '0'});
   } else {
-    $('#country_info').css({'position': 'absolute', 'top': '10px'});
+    $('.country_info').css({'position': 'absolute', 'top': '10px'});
   };
 });
 
