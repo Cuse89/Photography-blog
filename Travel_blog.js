@@ -93,7 +93,7 @@ var galleryLocation = ''
 
 $(document).ready(function(){
   $('#menu').css('margin-left', '-' + $('#menu').width()/2 + 'px');
-});
+
 
 
 $('#home').click(function(){
@@ -154,3 +154,4 @@ function seeGridPhotoBig(bigPhotoNum) {
     $('body').css('overflow-y', 'auto');
   })
 };
+});
