@@ -117,7 +117,7 @@ $('.menu_button a').click(function(){
   $('#country_info_' + galleryLocation).show();
   /*loops through the relevant photo array and appends the images to the grid*/
   for(var i = 0; i < photos[galleryLocation].length; i++) {
-    $('#grid').append(`<li class='grid_list'><div class='image_holder'><img class='grid_photo' id='grid_photo${i+1}' src='${photos[galleryLocation][i]}'/></div></li>`);
+    $('#grid').append(`<div class='grid_list'><div class='image_holder'><img class='grid_photo' id='grid_photo${i+1}' src='${photos[galleryLocation][i]}'/></div></div>`);
     $('#grid_photo_big_wrapper').append(`<img class= 'grid_photo_big' id='grid_photo_big${i+1}' src='${photos[galleryLocation][i]}'/>`);
   seeGridPhotoBig(i+1);
   };
