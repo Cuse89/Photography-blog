@@ -92,7 +92,7 @@ var homepage = true
 var galleryLocation = ''
 
 $(document).ready(function(){
-  $('#menu').css('margin-left', '-' + $('#menu').width()/2 + 'px');
+
 
 
 

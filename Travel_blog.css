@@ -30,7 +30,7 @@ body {
   top: 20px;
   left: 50%;
   position: absolute;
-  /*jscript is positioning the menu centre according to its width*/
+  transform: translateX(-50%); /*positioning the menu centre according to elements width*/
 }
 
 #menu li {
